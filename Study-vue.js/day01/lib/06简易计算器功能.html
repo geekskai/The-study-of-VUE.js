@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/vue-2.4.0.js"></script>
+</head>
+<body>
+    <div class="app">
+<input type="text" v-modle ='n1'>
+
+<select v-modle='opt'>
+    <option value="+"></option>
+    <option value="-"></option>
+    <option value="*"></option>
+    <option value="/"></option>
+</select>
+<input type="text" v-modle='n2'>
+<input type="button" value='=' @click="calc">
+<input type="text" v-modle='结果'>
+    </div>
+    <script>
+    var vm =new Vue({
+        el:'#app',
+        data:{
+            n1:0,
+            n2:0,
+            result:0,
+            opt:+    //默认选中＋号
+        },
+        methods:{
+           calc(){
+                switch(this.opt){    //如果this.opt='+' ....
+                    {# case '+' :this.result=parseInt(this.n1)+parseInt(this.n2)
+                    break;
+                    case '-' :this.result=parseInt(this.n1)-parseInt(this.n2)
+                    break;
+                    case '*' :this.result=parseInt(this.n1)*parseInt(this.n2)
+                    break;
+                    case '/' :this.result=parseInt(this.n1)/parseInt(this.n2)
+                    break; #}
+            var resultstr='parseInt(this.n1)'+this.opt+'parseInt(this.n2)'
+        this.result=eval(resultstr)
+                }
+            } 
+        }
+    })
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src='../lib/vue-2.4.0.js'></script>
+</head>
+<body>
+    <div id='app'>
+    <input type='button' value='浪起来' @click="lang"></input>
+    <input type='button' value='稳住，低调' @click="stop"></input>
+    <h1>{{msg}}</h1>
+        <h1 v-for='(val ,key ,i) in 20'>这是第 {{count}}次循环---》</h1>
+    </div>
+    <script>
+        var vm=new Vue({
+            el:'#app', 
+            data:{
+                msg:'稳住，我们能赢~~~~~！！',
+                intervalId:null
+            },
+            methods:{
+                lang(){//es6语法,开启定时器
+                if(this.intervalId!=null) return;
+                    this.intervalId=setInterval(()=>{
+                    var start=this.msg.substring(0,1)
+                    var end=this.msg.substring(1)//从当前1位置截图到最后
+                    this.msg=end+start
+                    },400)
+                },
+                stop(){//关闭定时器 
+                    clearInterval(this.intervalId)
+                    this.intervalId=null
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

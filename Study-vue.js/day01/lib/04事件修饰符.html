@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<script src='../lib/vue-2.4.0.js'></script>
+
+</head>
+<body>
+    <div id="app">
+{# 
+        <div clas   s='inner' @click="divHandler">
+             <input type="button" value='点击它' @click="btnHandler">
+        </div>
+         #}
+         <a href="http:www.baidu.com" @click.prevent='linckClick'>有问题去百度</a>
+         <!--prevent  阻止默认事件-->
+    </div>
+    <div class="outer"></div>
+    <script>
+    var vm=new Vue({
+        el:'#app',
+        data:{
+                 msg:'稳住，我们能赢~~~~~！！'
+        },
+        methods:{
+            divHandler(){
+                console.log('触发了div事件')
+            },
+            btnHandler(){
+                console.log('出发了btn事件')
+            },
+            linckClick(){
+
+                console.log('出发了链接的保存事件')
+            }
+        }
+    })
+    </script>
+
+</body>
+</html>

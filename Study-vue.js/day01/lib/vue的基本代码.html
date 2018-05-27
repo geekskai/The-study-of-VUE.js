@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src='../lib/vue-2.4.0.js'></script>
+   
+</head>
+<body>
+<div id='app'> 
+<p id='content'>{{msg}}</p>
+ <!--<input type="button" value="按钮" :title="mytitle+'123456'" v-on:click='show'></input>  -->
+ <input type="button" value="按钮" :title="mytitle+'123456'" v-on:mouseover='show'></input>
+ 
+<div>
+    <label>id <input type="text"></label>
+    <label>name <input type="text"></label>
+    <label>添加 <input type="button"></label>
+</div>
+
+<h1 v-for="user in 10"><input type="checkbox"> ID是：{{user.id}}----->name是：{{user.name}}</h1>
+</div>
+<script>
+    var vm=new Vue({
+        el:'#app',
+        data:{
+            msg:'欢迎学习vue',
+            mytitle:'这个是一个自定义的title'
+            ,list:[{
+                id:1,name:张三
+            }
+            ,{
+                id:2,name:李四
+            }
+            ,{
+                id:3,name:王五
+            }
+            ,{
+                id:4,name:赵柳
+            },
+            {
+                id:5,name:田七
+            }]
+        },
+        methods:{
+            show:function(){
+                alert('Hello world!! v-on:click=show')
+            }
+        }
+    })
+</script>    
+</body>
+</html>
