@@ -6,13 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="./lib/vue-2.4.0.js"></script>
+    <!--vue-resource依赖于vue ，所以vue必须写在前面-->
+    <!-- vue-resource 挂载了一个this.$http 可以点出很多的方法-->
     <script src="./lib/vue-resource-1.3.4.js"></script>
 
     <link rel="stylesheet" href="./lib/bootstrap-3.3.7.css">
 </head>
 <body>
      <div id="app">
-
+<input type="button" value="get请求" @click="getInfo">
     
     </div>
   <script>
@@ -22,6 +24,9 @@
       data: {
       },
       methods: {
+          getInfo(){
+              this.$http.get()
+          }
       },
       //自定义私有过滤器
       filters:{},
