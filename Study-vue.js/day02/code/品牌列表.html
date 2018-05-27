@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,46 +9,47 @@
     <script src="./lib/vue-2.4.0.js"></script>
     <link rel="stylesheet" href="./lib/bootstrap-3.3.7.css">
 </head>
+
 <body>
     <div id="app">
 
-    <div class="panel panel-primary">
+        <div class="panel panel-primary">
 
-        <div class="panel-heading">
-        <h3 class="panel-title">添加品牌</h3>
+            <div class="panel-heading">
+                <h3 class="panel-title">添加品牌</h3>
+            </div>
+
+            <div class="panel-body from-inline">
+                <label>id
+                    <input v-fontweight='1000' type="text" class="from-control" v-model="id" />
+                </label>
+
+                <label>name
+                    <input type="text" class="from-control" v-model="name" @keyup.13="add" v-color="'blue'" />
+                </label>
+
+                <input type="button" value="添加" class="btn btn-primary" @click="add()">
+                <label>搜索名称关键字：
+                    <input type="text" class="from-control" v-model="keywords" id="search" v-focus/>
+                </label>
+
+
+            </div>
+
         </div>
 
-    <div class="panel-body from-inline">
-        <label >id
-            <input v-fontweight='1000' type="text" class="from-control" v-model="id"/>
-        </label>
+        <table class="table table-bordered table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Name</th>
+                    <th>Ctime</th>
+                    <th>Operation</th>
+                </tr>
+            </thead>
 
-        <label >name
-            <input  type="text" class="from-control" v-model="name" @keyup.13="add" v-color="'blue'"/>
-        </label>
-
-        <input type="button" value="添加" class="btn btn-primary" @click="add()" >
-        <label >搜索名称关键字：
-            <input type="text" class="from-control" v-model="keywords" id="search" v-focus/>
-        </label>
-
-       
-    </div>
-
-    </div>
-
-    <table class="table table-bordered table-hover table-striped">
-    <thead>
-        <tr>
-            <th>id</th>
-            <th>Name</th>
-            <th>Ctime</th>
-            <th>Operation</th>
-        </tr>
-    </thead>
-    
-    <tbody>
-    <!-- <tr v-for="item in list" :key="item.id">//这是遍历一个数组 也可以遍历一个方法
+            <tbody>
+                <!-- <tr v-for="item in list" :key="item.id">//这是遍历一个数组 也可以遍历一个方法
             <td>{{item.id}}</td>
             <td>{{item.name}}</td>
             <td v-text="item.ctime"></td>
@@ -55,18 +57,18 @@
             <a href="" @click.prevent="del(item.id)">删除</a>
             </td>
         </tr> -->
-        <tr v-for="item in search(keywords)" :key="item.id"> 
-        <!--自定义的search（）方法-->
-            <td>{{item.id}}</td>
-            <td>{{item.name}}</td>
-            <td v-text="item.ctime"></td>
-            <td>
-            <a href="" @click.prevent="del(item.id)">删除</a>
-            </td>
-        </tr>
-          
-        
-        </tbody>
+                <tr v-for="item in search(keywords)" :key="item.id">
+                    <!--自定义的search（）方法-->
+                    <td>{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                    <td v-text="item.ctime"></td>
+                    <td>
+                        <a href="" @click.prevent="del(item.id)">删除</a>
+                    </td>
+                </tr>
+
+
+            </tbody>
         </table>
     </div>
 
@@ -74,87 +76,87 @@
 
     <script>
 
-//自定义全局键盘修饰符
-Vue.config.keyCodes.f1=112
-//自定义指令
-Vue.directive('focus',{
-    bind:function(el){
-        el.focus()
-    },
-    inserted:function(el){
-        el.focus()
-    },
-    updated:function(){}
-})
+        //自定义全局键盘修饰符
+        Vue.config.keyCodes.f1 = 112
+        //自定义指令
+        Vue.directive('focus', {
+            bind: function (el) {
+                el.focus()
+            },
+            inserted: function (el) {
+                el.focus()
+            },
+            updated: function () { }
+        })
 
-//自定义颜色指令
-Vue.directive('color',{
-bind:function(el,binding){
-    el.style.color=binding.value
-}
-})
+        //自定义颜色指令
+        Vue.directive('color', {
+            bind: function (el, binding) {
+                el.style.color = binding.value
+            }
+        })
 
-      var vm = new Vue({
-      el: '#app',
-      data: {
-          id:'',
-          name:'',
-          keywords:'',
-       list:[
-           {
-               id:1,name:'奔驰',ctime:new Date()
-           },
-           {
-               id:2,name:'宝马',ctime:new Date()
-           },
-           {
-               id:3,name:'奥迪',ctime:new Date()
-           }
-       ]
-      },
-      methods: {
-       add(){
-           var car={id:this.id,name:this.name,ctime:new Date()}
-            this.list.push(car)
-            this.id=this.name=''
-       },
-       del(id){
-           // 根据ID获取索引,some()根据指定条件进行判断，如果找到条件return true，就终止循环，你也不知道什么时候能找到 
-          // this.list.some((item ,i)=>{
-            //   if(item.id==id){
-              //     this.list.splice(i,1) //从i位置开始删 ，删除一个
-                //   return true
-              // }
-           //})
-           var index=this.list.findIndex(item=>{
-               if(item.id==id){
-                   return true
-               }
-           })
-        this.list.splice(index,1)
-       },
-       search(keywords){
-           var newlist=[]
-           this.list.forEach(item=>{
-           if(item.name.indexOf(keywords)!=-1){
-               newlist.push(item)
-           }
-           })
-           return newlist
-       }
-      },
-      //自定义私有过滤器
-      filters:{},
-      //自定义私有指令
-      directives:{
-          'fontweight':{
-              bind:function(el,binding){
-                  el.style.fontWeight=binding.value
-              }
-          }
-      }
-    });
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                id: '',
+                name: '',
+                keywords: '',
+                list: [
+                    {
+                        id: 1, name: '奔驰', ctime: new Date()
+                    },
+                    {
+                        id: 2, name: '宝马', ctime: new Date()
+                    },
+                    {
+                        id: 3, name: '奥迪', ctime: new Date()
+                    }
+                ]
+            },
+            methods: {
+                add() {
+                    var car = { id: this.id, name: this.name, ctime: new Date() }
+                    this.list.push(car)
+                    this.id = this.name = ''
+                },
+                del(id) {
+                    // 根据ID获取索引,some()根据指定条件进行判断，如果找到条件return true，就终止循环，你也不知道什么时候能找到 
+                    // this.list.some((item ,i)=>{
+                    //   if(item.id==id){
+                    //     this.list.splice(i,1) //从i位置开始删 ，删除一个
+                    //   return true
+                    // }
+                    //})
+                    var index = this.list.findIndex(item => {
+                        if (item.id == id) {
+                            return true
+                        }
+                    })
+                    this.list.splice(index, 1)
+                },
+                search(keywords) {
+                    var newlist = []
+                    this.list.forEach(item => {
+                        if (item.name.indexOf(keywords) != -1) {
+                            newlist.push(item)
+                        }
+                    })
+                    return newlist
+                }
+            },
+            //自定义私有过滤器
+            filters: {},
+            //自定义私有指令
+            directives: {
+                'fontweight': {
+                    bind: function (el, binding) {
+                        el.style.fontWeight = binding.value
+                    }
+                }
+            }
+        });
     </script>
 </body>
-</html>
 
+</html>
