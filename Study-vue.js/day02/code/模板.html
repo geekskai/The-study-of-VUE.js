@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+    <script src="./lib/vue-resource-1.3.4.js"></script>
+    <link rel="stylesheet" href="./lib/bootstrap-3.3.7.css">
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(value,key,i) in objlist" :key='i'>{{key}}-----{{i}}--->{{value}}
+                <input type="text">
+            </li>
+            <li v-for="ite in produces">
+<input type="text" v-model="ite.produce">--------------<input type="text" v-model="ite.version">
+                            <select id="city" class="select"  v-model='list.name'>
+                                <option value="贵阳">{{objlist.name}}</option>
+                                <option value="六盘水">六盘水</option>
+                                <option value="都匀">都匀</option>
+                                <option value="福泉">福泉</option>
+                                <option value="遵义">遵义</option>
+                                <option value="兴义">兴义</option>
+                                <option value="安顺">安顺</option>
+                                <option value="凯里">凯里</option>
+                                <option value="毕节">毕节</option>
+                            </select>
+            </li>
+        </ul>
+        <input type="button" value="添加" @click='adds' class="btn btn-primary">
+        <input type="button" value="保存" @click='save' class="btn btn-primary">
+
+    </input>
+    </div>
+    <script>
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                list: [{ name: '张三', price: '234' }, { name: '李四', price: '342' }],
+                objlist:{name:'sfds',price:34,color:45},
+                produces:[],
+                i:0
+            },
+            methods: {
+                add() {
+                    this.list.push({ name: '王五', price: '554' })
+                },
+                save(){
+                    let x=this.i
+                    this.produces.forEach(element => {
+                    console.log("你填入的值是------------>",element)
+
+                    });
+                    console.log("-----i是------->",this.i)
+
+                },
+
+                adds(){
+                   this.i+=1
+                    this.produces.push({produce:'',version:''})
+                    console.log('prioo',this.produces)
+                }
+            },
+            //自定义私有过滤器
+            filters: {},
+            //自定义私有指令
+            directives: {
+            }
+        });
+    </script>
+</body>
+
+</html>

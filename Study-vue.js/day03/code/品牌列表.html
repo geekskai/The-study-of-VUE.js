@@ -75,6 +75,22 @@
 
 
     <script>
+//处理网页显示过大的问题，
+let htmlwidth=document.documentElement.clientWidth||document.body.clientWidth
+if(htmlwidth>750){
+htmlwidth=750
+}
+        var p = {
+            "rows": '5',
+            "province": [
+                { "city": "福州" },
+                { "city": "厦门" },
+                { "city": "莆田" }
+            ]
+        };
+        window.alert("所在城市：" + p.province[0]);
+        console.log('------p.province[0]-----', p.province[0])
+        console.log('------p-----', p)
 
         //自定义全局键盘修饰符
         Vue.config.keyCodes.f1 = 112
