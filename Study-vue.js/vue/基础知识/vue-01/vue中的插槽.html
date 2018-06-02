@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>组件参数校验</title>
+  <script src="./vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <child>
+      <div slot='header'>Header</div>
+      <div slot='footer'>Footer</div>
+    </child>
+
+  </div>
+  <script>
+
+    Vue.component('child', {
+      template: `<div>
+      <slot name='header'><h1>如若没有和这个相对应的这个就是默认的</h1></slot>
+      <div>内容区域</div>
+      <slot name='footer'></slot>
+      </div>`
+    })
+    var vm = new Vue({
+      el: '#app',
+      data: {
+
+      },
+      methods: {
+
+      }
+    })
+  </script>
+</body>
+
+</html>

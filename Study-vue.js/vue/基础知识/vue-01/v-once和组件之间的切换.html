@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>组件参数校验</title>
+  <script src="./vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <!-- //component是vue中自带的标签 指的就是动态组件,动态组件的意思就是会根据数据的变化,自动加载不同的组件-->
+    <component :is='type'></component>
+    <!-- <child-one v-if='type==="child-one"'></child-one>     -->
+      <!-- 每一次切换的时候,都会生产和销毁组件性能消耗比较大,
+        可以通过v-once来指定一些静态资源之间的切换,这样会把资源放在内存中, -->
+    <!-- <child-two v-if='type==="child-two"'></child-two> -->
+    <button @click='handleChange'>change</button>
+  </div>
+  <script>
+    Vue.component('child-one', {
+      template: `<div v-once>child-one</div>`
+    })
+    Vue.component('child-two', {
+      template: `<div v-once>child-two</div>`
+    })
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        type: 'child-one'
+      },
+      methods: {
+        handleChange: function () {
+          this.type = (this.type === 'child-one' ? 'child-two' : 'child-one')
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
