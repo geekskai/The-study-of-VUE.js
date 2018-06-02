@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>多个元素和组件之间的多度切换</title>
+  <script src="./vue.js"></script>
+  <script src="./jQuery.html"></script>
+  <link rel="stylesheet" href="./animate.css">
+  <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.min.js"></script>
+  <style>
+    .v-enter,
+    .v-leave-to {
+      opacity: 0;
+    }
+
+    .v-enter-active,
+    .v-leave-active {
+      transition: opacity 1s;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <transition mode='in-out'>
+      <div v-if='show' key='hello'>hello world</div>
+      <div v-else key='Bye'> Bye world</div>
+    </transition>
+    <input @click='handleShow' type="button" value="点击">
+
+  </div>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        show: true
+      },
+      methods: {
+        handleShow: function () {
+          this.show = !this.show
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

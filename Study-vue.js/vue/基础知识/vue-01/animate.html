@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>animate的演示</title>
+  <script src="./vue.js"></script>
+  <script src="./jQuery.html"></script>
+  <link rel="stylesheet" href="./animate.css">
+  <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.min.js"></script>
+  <style>
+    /* @keyframes bounce-in {
+      0% {
+        transform: scale(0)
+      }
+      50% {
+        transform: scale(1.5)
+      }
+      100% {
+        transform: scale(1)
+      }
+    } */
+
+    .active {
+      transform-origin: left center;
+      animation: bounce-in 1s;
+    }
+
+    .leave {
+      transform-origin: left center;
+      animation: bounce-in 1s reverse;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <transition name='fade' appear enter-active-class='animated swing'
+    leave-active-class='animated shake' appear-active-class='animated swing'>
+      <div v-show='show'>hello world</div>
+    </transition>
+    <input @click='handleShow' type="button" value="点击">
+  </div>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        show: true
+      },
+      methods: {
+        handleShow: function () {
+          this.show = !this.show
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
