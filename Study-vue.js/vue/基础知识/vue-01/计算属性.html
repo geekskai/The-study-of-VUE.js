@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>计算属性,方法,以及监听器</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  <script src="./vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <!-- {{firstName+' '+lastNmae}} -->
+    {{fullnName}} {{age}}
+  </div>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        firstName: 'gangan',
+        lastNmae: 'kaikai',
+        fullnName: 'gangan kaikai',
+        age: 24
+      },
+      //监听器,监听firstName 和 lastName 后面是改变的时候触发的操作
+      watch: {
+        firstName: function () {
+          this.fullnName = this.firstName + ' ' + this.lastNmae
+        },
+        lastNmae: function () {
+          this.fullnName = this.firstName + ' ' + this.lastNmae
+        }
+      },
+      //方法
+      methods: {
+        // fullnName() {
+        //   //用方法没有缓存,同样的一个功能,效率不同
+        //   return this.firstName + ' ' + this.lastNmae
+        // }
+      },
+      //计算属性
+      // computed: {
+      //   fullnName: function () {
+      //     console.log('计算了一次')
+      //     //有缓存的
+      //    return this.firstName+' '+this.lastNmae
+      //   }
+      // }
+
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>计算属性的set和get</title>
+  <script src="./vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    {{fullName}}
+  </div>
+  <script>
+    var vm = new Vue({
+      el: "#app",
+      data: {
+        firstName: 'gan',
+        lastName: 'kai'
+      },
+      computed: {//当依赖的值发生改变的时候,就会重新计算属性,否则就是用缓存
+        fullName: {
+          get: function () {
+            return this.firstName + " " + this.lastName
+          },
+          set: function (value) {
+            var arr=value.split(" ")
+            this.firstName=arr[0]
+            this.lastName=arr[1]
+            console.log('log-->' + value)
+          }
+        }
+      },
+      watch: {
+
+      },
+    })
+  </script>
+</body>
+
+</html>
