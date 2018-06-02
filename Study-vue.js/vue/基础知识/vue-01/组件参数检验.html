@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>组件参数校验</title>
+  <script src="./vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <child :content='"helloww"'></child>
+  </div>
+  <script>
+    //注册局部组件
+    Vue.component('child', {
+      props: {
+        content: {
+          type: String,
+          // required: true,  //如果为true,那么父组件必须为子组件传这个content值
+          // default: 'defaultValue',   //默认的值,如果是上面的required为false,则显示这个区域的内容
+          validator: function (value) {
+            return (value.length > 5)   //自定检验器,value为传入的值,判断数组长度是否大于5
+          }
+        }
+      },
+      template: '<div>{{content}}</div>'
+    })
+    var vm = new Vue({
+      el: '#app',
+      data: {
+
+      },
+      methods: {
+
+      }
+    })
+  </script>
+</body>
+
+</html>

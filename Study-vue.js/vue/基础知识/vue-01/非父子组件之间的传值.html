@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>非父子组件之间的传值</title>
+  <script src="./vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <child content='Gan'></child>
+    <child content='Kai'></child>
+  </div>
+  <script>
+
+    //将bus总线挂载在Vue实例上,只要有用到Vue这个类(new Vue())的地方,就有这个总线(bus),所以只要是
+    //有用到这个Vue类的地方,都会有这个bus的这个属性.而且都指向同一个vue的实例
+    Vue.prototype.bus = new Vue()
+
+    Vue.component('child', {
+      props: {
+        content: String
+      },
+      data: function () {
+        return {
+          self_content: this.content
+        }
+      },
+      template: "<div @click='handleClick'>{{self_content}}</div>",
+      methods: {
+        handleClick: function () {
+          // 向外触发事件,
+          this.bus.$emit('change', this.self_content)
+        }
+      },
+      mounted: function () {
+        var this_ = this  //先保存这个this,这个地方容易出错,this指的是vue实例
+        this.bus.$on('change', function (msg) {
+          // 监听触发的事件
+          this_.self_content = msg
+        })
+      }
+    })
+    var vm = new Vue({
+      el: '#app',
+      data: {
+
+      },
+      methods: {
+
+      }
+    })
+  </script>
+</body>
+
+</html>
