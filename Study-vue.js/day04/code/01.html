@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Document</title>
+      <script src="./lib/vue-2.4.0.js"></script>
+      <link rel="stylesheet" href="./lib/bootstrap-3.3.7.css">
+</head>
+
+<body>
+      <div id="app">
+            <h3 id="h3">{{msg}}</h3>
+            <input type="button" value="点击" @click="msg='no'">
+      </div>
+      <script>
+
+            var vm = new Vue({
+                  el: '#app',
+                  data: {
+                        msg: 'YES'
+                  },
+                  methods: {
+                  },
+                  //第一个生命周期函数
+                  beforeCreate() {//在这函数执行的时候，data和methods函数还没有初始化，调用数据的时候会出现undefind
+                  },
+                  created() {
+                        //第二个生命周期函数，这个时候data和methods函数已经初始化好了，一般操作data中的方法和数据，一般是在这里操作
+                  },
+                  beforeMount() {
+                        //这是第三个生命周期函数，表示模板已经在内存中编辑完成，但是还没有把模板渲染到页面上,
+                        //只是代码上的一些字符串，还没有被替换过来,此时页面还是旧的
+                        //console.log("beforeMount()----",document.getElementById('h3').innerText)
+                  },
+                  mounted() {
+                        //这个是第四个生命周期函数，表示内存中的模板已经真实的挂在在了页面中，用户可以看到已经渲染好的页面了  
+                        //注意： mounted是实例化期间的最后一个函数，当执行完了mounted函数的时候，就表示，实例已经创建好了，
+                        //此时，组件已经脱离创建阶段，进入运行阶段了！！
+                  },
+                  //接下来运行的两个事件
+                  beforeUpdate() {
+                        //这个时候表示我们的【界面】还没有被更新,但是【数据】更新了。
+                        console.log("更新之前界面上的元素是----", document.getElementById('h3').innerText)
+                        //得出结论，当执行beforeUpdate方法的时候，页面上的元素是就页面上显示的元素，但是数据是最新的，这个时候最新的数据
+                        //还没有重新渲染到页面上。
+                  },
+                  updated() {
+                        console.log("更新后界面上的元素是----", document.getElementById('h3').innerText)
+                        console.log("更新后改变后data的数据是----", this.msg)
+                        //updated执行的时候，前端页面和DOM数据已经保持同步了
+                  },
+
+                  //自定义私有过滤器
+                  filters: {},
+                  //自定义私有指令
+                  directives: {
+                  }
+            });
+      </script>
+</body>
+
+</html>
