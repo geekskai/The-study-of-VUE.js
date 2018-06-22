@@ -110,4 +110,5 @@ var b=a.split("",3);    //b=["0","1","2"]
 ![](./imgs/vertical-aline.png)
 
 什么是文字的基线?
+
 ![](./imgs/jixian.png)
