@@ -83,3 +83,31 @@ var b=a.split("",3);    //b=["0","1","2"]
  例如 ： str = “s-aaa-sss-eee-www”;
 
 `targetArr = str.slite(“-”);	结果是 :[‘s’,’aaa’,’sss’,’eee’,’www’]`
+
+2018-6-21 22:14:04
+
+# 清除浮动的目的是为了解决父级元素因为子级元素浮动引起的高度为零的问题 #
+
+四种定位的问题
+
+![position](./imgs/position-4.png)
+
+背景图片代码
+
+`background:rgba(0,0,0,.4) url(imgs/xx.png) no-repeat center;`
+
+##鼠标放上去 a里面的 mask显示出来
+
+![](./imgs/a-hover.png)
+
+##vertical-aline 垂直对齐方式
+
+图片<img>默认是基线对齐行,内标签,
+
+   有三种方式 基线:`vertical-aline:baseline;` 底线(bottom):居中(center)和顶部(top)
+
+	注意,这个标签是加在img标签上的
+![](./imgs/vertical-aline.png)
+
+什么是文字的基线?
+![](./imgs/文字基线.png)
