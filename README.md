@@ -100,7 +100,7 @@ var b=a.split("",3);    //b=["0","1","2"]
 
 ![](./imgs/a-hover.png)
 
-##vertical-aline 垂直对齐方式
+	vertical-aline 垂直对齐方式
 
 图片<img>默认是基线对齐行,内标签,
 
@@ -110,4 +110,4 @@ var b=a.split("",3);    //b=["0","1","2"]
 ![](./imgs/vertical-aline.png)
 
 什么是文字的基线?
-![](./imgs/文字基线.png)
+![](./imgs/jixian.png)
