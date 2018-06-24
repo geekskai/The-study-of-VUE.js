@@ -279,18 +279,20 @@ accesskey标签属性 ,默认按哪个键会自动将光标移动到输入框中
 	    <li>8</li>
 	</ul>
 
-<style>
-    /* 选择第一个子标签
+
+ 	/* 选择第一个子标签*/
 	ul li:first-child {
       background-color: brown
     }
+
 	选择最后一个子标签
     ul li:last-child { 
       background-color: chartreuse
     }
-    ul li:nth-child(5) {  选择最后第五个子标签
+	选择最后第五个子标签
+    ul li:nth-child(5) {  
       background-color: crimson
-    } */
+    } 
 
     /* even 显示所有的偶数 */
     /* ul li:nth-child(even) {
@@ -303,8 +305,8 @@ accesskey标签属性 ,默认按哪个键会自动将光标移动到输入框中
     }  */
 
     ** n是从0开始的所有自然数(0,1,2,3,4,5,6,7,8,9...), 如果是n,即代表显示所有的数  n代表第几个子标签**
-
-    /* ul li:nth-child(n) {
+    
+	/* ul li:nth-child(n) {
       background-color: yellow
     } */
 
@@ -317,7 +319,7 @@ accesskey标签属性 ,默认按哪个键会自动将光标移动到输入框中
     ul li:nth-child(2n+1) {
       background-color: pink
     }
-  </style>
+  
 
 # css属性选择器 #
 
