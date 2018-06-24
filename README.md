@@ -251,3 +251,110 @@ accesskey标签属性 ,默认按哪个键会自动将光标移动到输入框中
 	</video>
 
 可以设置视频的高度和宽度,其他的属性和播放视频一样,不在重复赘述!
+
+# CSS结构伪类选择器 #
+
+例如:
+	<ul>
+	    <li>1</li>
+	    <li>2</li>
+	    <li>3</li>
+	    <li>4</li>
+	    <li>5</li>
+	    <li>6</li>
+	    <li>7</li>
+	    <li>8</li>
+	</ul>
+
+<style>
+    /* 选择第一个子标签
+	ul li:first-child {
+      background-color: brown
+    }
+	选择最后一个子标签
+    ul li:last-child { 
+      background-color: chartreuse
+    }
+    ul li:nth-child(5) {  选择最后第五个子标签
+      background-color: crimson
+    } */
+
+    /* even 显示所有的偶数 */
+    /* ul li:nth-child(even) {
+      background-color: pink
+    }
+
+    /* odd 显示所有的奇数 */
+    /* ul li:nth-child(odd) {
+      background-color:purple
+    }  */
+
+    ** n是从0开始的所有自然数(0,1,2,3,4,5,6,7,8,9...), 如果是n,即代表显示所有的数  n代表第几个子标签**
+
+    /* ul li:nth-child(n) {
+      background-color: yellow
+    } */
+
+    /* 2n代表偶数类似even */
+    ul li:nth-child(2n) {
+      background-color: yellow
+    }
+
+    /* 2n+1代表偶数类似odd */
+    ul li:nth-child(2n+1) {
+      background-color: pink
+    }
+  </style>
+
+# css属性选择器 #
+
+	<div class="test1">我爱jvaj</div>
+	<div class="test2">我爱jvaj</di>
+	<div class="demo">我爱jvaj</div>
+	<div class="mydemo1">我爱jvaj</div>
+	<div class="newdemo">我爱jvaj</div>
+	<div class="javatest">我爱jvaj</div>
+	<div>没有</div>
+	<div class="no">我爱jvaj</div>
+
+
+<style>
+	选择标签中clas=java的
+	div[class=java] {
+	  background-color: peru
+	}
+	选择标签中以class是以java开头的标签
+	div[class^=java] {
+	  background-color: peru
+	}
+	选择标签中以class是以java结尾的标签
+	div[class$=java] {
+	  background-color: peru
+	}
+</style>
+
+# css3伪类元素 #
+首先用一个p标签作为例子:
+	 <p>淘宝网是亚太地区较大的网络零售、商圈，由阿里巴巴集团在2003年5月创立。淘宝网 [1] 是中国深受欢迎的网购零售平台，拥有近5亿的注册用户数，每天有超过6000万的固定访客，同时每天的在线商品数已经超过了8亿件，平均每分钟售出4.8万件商品。
+    [1] 截止2011年年底，淘宝网单日交易额峰值达到43.8亿元，创造270.8万直接 且充分就业机会。随着淘宝网规模的扩大和用户数量的增加，淘宝也从单一的C2C网络集市变成了包括C2C、团购、分销、拍卖等多种电子商务模式在内的综合性零售商圈。目前已经成为世界范围的电子商务交易平台之一。
+    2016年3月15日，315晚会曝光，淘宝商家存在刷单等欺骗消费者现象。 2016年3月29日，阿里巴巴集团CEO张勇为淘宝的未来明确了战略：社区化、内容化和本地生活化是三大方向。 [2] 2018年3月，北京市消协官网显示，北京市消协2017年在淘宝购买了4种比较试验样品，其中有1种不达标，不达标率为25.0%。
+    淘宝网是亚太地区较大的网络零售、商圈，由阿里巴巴集团在2003年5月创立。淘宝网 [1] 是中国深受欢迎的网购零售平台，拥有近5亿的注册用户数，每天有超过6000万的固定访客，同时每天的在线商品数已经超过了8亿件，平均每分钟售出4.8万件商品。
+    [1] 截止2011年年底，淘宝网单日交易额峰值达到43.8亿元，创造270.8万直接 且充分就业机会。随着淘宝网规模的扩大和用户数量的增加，淘宝也从单一的C2C网络集市变成了包括C2C、团购、分销、拍卖等多种电子商务模式在内的综合性零售商圈。目前已经成为世界范围的电子商务交易平台之一。
+    2016年3月15日，315晚会曝光，淘宝商家存在刷单等欺骗消费者现象。 2016年3月29日，阿里巴巴集团CEO张勇为淘宝的未来明确了战略：社区化、内容化和本地生活化是三大方向。 [2] 2018年3月，北京市消协官网显示，北京市消协2017年在淘宝购买了4种比较试验样品，其中有1种不达标，不达标率为25.0%。
+  </p>
+
+**css3样式:**
+
+    p::first-letter {
+      font-size: 100px
+    }
+    p::first-line {
+      color: orangered
+    }
+    p::selection{
+      background-color: palegreen;
+      color: red
+    }
+
+
+

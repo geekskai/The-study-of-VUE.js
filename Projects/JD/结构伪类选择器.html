@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>结构伪类选择器</title>
+  <style>
+    /* ul li:first-child {
+      background-color: brown
+    }
+    ul li:last-child {
+      background-color: chartreuse
+    }
+    ul li:nth-child(5) {
+      background-color: crimson
+    } */
+
+    /* even 显示所有的偶数 */
+
+    /* ul li:nth-child(even) {
+      background-color: pink
+    }
+
+    /* odd 显示所有的奇数 */
+
+    /* ul li:nth-child(odd) {
+      background-color:purple
+    }  */
+
+    /* n是从0开始的所有自然数(0,1,2,3,4,5,6,7,8,9...), 代表显示所有的数 */
+
+    /* ul li:nth-child(n) {
+      background-color: yellow
+    } */
+    /* 2n代表偶数类似even */
+    ul li:nth-child(2n) {
+      background-color: yellow
+    }
+    /* 2n+1代表偶数类似odd */
+    ul li:nth-child(2n+1) {
+      background-color: pink
+    }
+  </style>
+</head>
+
+<body>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+  </ul>
+</body>
+
+</html>
