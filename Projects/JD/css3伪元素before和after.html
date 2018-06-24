@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    @font-face {
+      /*声明字体  引用字体*/
+      font-family: "icomoon";
+      /*我们自己起名字可以*/
+      src: url('fonts/icomoon.eot?7kkyc2');
+      src: url('fonts/icomoon.eot?7kkyc2#iefix') format('embedded-opentype'),
+      url('fonts/icomoon.ttf?7kkyc2') format('truetype'),
+      url('fonts/icomoon.woff?7kkyc2') format('woff'),
+      url('fonts/icomoon.svg?7kkyc2#icomoon') format('svg');
+      font-style: normal;
+      /*倾斜字体正常*/
+      font-weight: normal;
+      /*倾斜字体正常*/
+    }
+    span ,div{
+      font-family: "icomoon";
+    }
+    div::after {
+      content: "\e900"
+    }
+    div::before {
+      content: "\e900"
+    }
+  </style>
+</head>
+<body>
+  <span></span>
+  <div>主页</div>
+</body>
+</html>
