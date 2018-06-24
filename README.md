@@ -88,9 +88,10 @@ var b=a.split("",3);    //b=["0","1","2"]
 
 # 清除浮动的目的是为了解决父级元素因为子级元素浮动引起的高度为零的问题 #
 
-四种定位的问题
+四种定位的问题:定位一定要有宽和高,而且要写在宽和高前面
 
 ![position](./imgs/position-4.png)
+
 
 背景图片代码
 
@@ -122,3 +123,131 @@ var b=a.split("",3);    //b=["0","1","2"]
 在a标签中添加滑动门事件,**主要的原理是控制背景图片的来回切换**
 
 ![](./imgs/moving-span.png)
+
+当鼠标移动上去的时候 ,图片变成凹下去的,这个凹下去的图片是用background-img做的 如图:
+
+![](./imgs/moveing-2.png)
+
+# 字体图标网址: [https://icomoon.io/](https://icomoon.io/)  #
+
+在样式上中添加代码:
+
+ 		
+	<style>
+	    @font-face {
+	      /*声明字体  引用字体*/
+	      font-family: "icomoon";
+	      /*我们自己起名字可以*/
+	      src: url('fonts/icomoon.eot?7kkyc2');
+	      src: url('fonts/icomoon.eot?7kkyc2#iefix') format('embedded-opentype'),
+	      url('fonts/icomoon.ttf?7kkyc2') format('truetype'),
+	      url('fonts/icomoon.woff?7kkyc2') format('woff'),
+	      url('fonts/icomoon.svg?7kkyc2#icomoon') format('svg');
+	      font-style: normal;
+	      /*倾斜字体正常*/
+	      font-weight: normal;
+	      /*倾斜字体正常*/
+	    }
+	    span {
+	      font-family: 'icomoon';
+	      font-size: 100px;
+	      color: aqua;
+	    }
+	 </style>
+
+
+## 如何自创独一无二的字体图标? 
+
+ 在https://icomoon.io/官网上,有个导入的按钮,你只需要把后缀名字为xxx.svg发文件导入,就行,就会自定生成一个你自己的字体图标,点击就可以下载.这个.svg文件一般是美工做好的.
+
+
+#如何在自己的原来的字体图标的基础上追加字体图标? #
+
+![](./imgs/add-icon.png)
+
+上传文件后,再次点击既想要你添加的图标,然后下载到本地即可!
+
+ 	淘宝ico 图标 [https://www.taobao.com/favicon.ico](https://www.taobao.com/favicon.ico) 
+
+## log优化的问题 ##
+
+![](./imgs/JD-log.png)
+![](./imgs/logo-a.png)
+
+# 网页优化三大标签 SEO(搜索引擎优化)# 
+
+1.<title>标签:首页标题:网站名(产品名)-网站介绍  例如:参考jd的title
+2.<meta>标签:在百度上搜索京东的时候,显示的简单的介绍就是这个`name="description" content="xxx" `的内容,如下图:
+![](./imgs/description2.png)
+
+**上下两个图是对应的关系(图中content的文字内容不一样,并非同一个页面,知道怎么回事就行)**
+
+![](./imgs/description.png)
+
+# Description-网站说明(百度28个中文56kb,谷歌35个中文70kb) #
+
+# Keywords -网站关键字(6-8个左右) #
+
+`name="keywords" content="xxx" `
+
+![](./imgs/keywords.png)
+
+2018-6-24 10:39:57
+
+
+**H5标签定义选项列表-datalist**
+![](./imgs/datalist.png)
+
+可以输入也可以下拉,类似百度搜索
+
+	`<input type="text" value="请输入" list="star">
+		<datalist id="star">
+			<option value="刘德华"></option>
+			<option value="刘若英"></option>
+			<option value="刘备"></option>
+			<option value="刘晓庆"></option>
+			<option value="戚继光"></option>
+			<option value="常委"></option>
+			<option value="长威"></option>
+	</datalist> `
+
+
+
+** fieldset标签 **
+
+	<form action="">
+		<input type="text" required accesskey="s">
+		<input type="submit" value="添加">
+	</form>
+
+accesskey标签属性 ,默认按哪个键会自动将光标移动到输入框中去,一般是设置 alt+s 
+自动获取光标,在标签上加属性 autofocus
+
+# 插入视频 #
+
+很简单只要在代码中插入 一个连接就行  例如:跑男的连接o(*￣︶￣*)o
+
+`<iframe frameborder="0" width="640" height="498" src="https://v.qq.com/iframe/player.html?vid=q00266ydgmr&tiny=0&auto=0" allowfullscreen></iframe>`
+
+# 播放背景音乐 audio#
+
+	<audio  autoplay controls loops>
+		<source src="视频/bgsound.mp3">背景音乐mp3
+		<source src="视频/music.ogg">背景音乐ogg
+		<source src="视频/music.Wav">背景音乐wav
+		你的浏览器不支持HTML音频播放功能
+	</audio>
+![](./imgs/audio.png)
+
+一般播放音乐的文件有三种模式,即后缀名为 .MP3 .ogg .wav  ,有浏览器会不支持,如果都不支持则显示 `你的浏览器不支持HTML音频播放功能` 这句话!
+
+# 播放视频 video #
+
+格式有 `ogg, mpeg 4(MP4), webm` 这三个格式!
+
+	<video autoplay controls >
+		<source src="视频/mp4.mp4">
+		<source src="视频/movie04.ogg">
+	</video>
+
+可以设置视频的高度和宽度,其他的属性和播放视频一样,不在重复赘述!
