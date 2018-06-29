@@ -103,7 +103,7 @@ var b=a.split("",3);    //b=["0","1","2"]
 
 	vertical-aline 垂直对齐方式
 
-图片<img>默认是基线对齐行,内标签,
+图片<img>**默认是基线对齐行,内标签**,
 
    有三种方式 基线:`vertical-aline:baseline;` 底线(bottom):居中(center)和顶部(top)
 
@@ -113,6 +113,12 @@ var b=a.split("",3);    //b=["0","1","2"]
 什么是文字的基线?
 
 ![](./imgs/base.png)
+
+
+# 一个小问题 #
+*听说display:inline-block和vertical-align:middle;很配哦!!!!!*
+因为图片或者块级别标签,和文字对齐的方式是基线对齐,所以有些时候,图片和文字在对齐的时候,很难对整齐,那么,就要用到一个属性,那就是`vertical-align:middle;`让块级标签对准文字的中线.这样句可以随便调整文字的高度.![](./imgs/vertical-align.png)
+
 
 2018-6-22 22:55:03
 
