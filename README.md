@@ -7,7 +7,7 @@
 
 `
 var a=[1,2,3,4,5,6];
-var b=a.slice(0,3);    //[1,2,3]
+var b=a.slice(	0,3);    //[1,2,3]
 var c=a.slice(3);       //[4,5,6]
 `
 
@@ -339,7 +339,8 @@ accesskey标签属性 ,默认按哪个键会自动将光标移动到输入框中
 	<div class="no">我爱jvaj</div>
 
 
-<style>
+style中这样写:
+
 	选择标签中clas=java的
 	div[class=java] {
 	  background-color: peru
@@ -352,9 +353,15 @@ accesskey标签属性 ,默认按哪个键会自动将光标移动到输入框中
 	div[class$=java] {
 	  background-color: peru
 	}
-</style>
+	class*=java表示 只要class中有包含java的都行
+	div[class*=java] {
+	  background-color: peru
+	}
 
-# css3伪类元素 #
+**input[type=submit],只要是类型是等于submit的input框都行**这个就是属性选择器
+
+
+# css3伪类元素 (默认行内元素)#
 首先用一个p标签作为例子:
 	 <p>淘宝网是亚太地区较大的网络零售、商圈，由阿里巴巴集团在2003年5月创立。淘宝网 [1] 是中国深受欢迎的网购零售平台，拥有近5亿的注册用户数，每天有超过6000万的固定访客，同时每天的在线商品数已经超过了8亿件，平均每分钟售出4.8万件商品。</p>
 
@@ -440,3 +447,70 @@ box-sizing: content-box; 	/*外加模式*/
 
 如果你要切去一个图片中的logo,小型的图片可以直接用一下操作执行,无需切片.
 点击'移动工具'的图标,选择你要的图标,然后找到该图标所在的图层,再次右击图层,选择'转换成只能对象'(这个时候没有任何反应,很正常),然后再次在这个图层上,右键'编辑内容',出现对话框,点击确定.将图片存储起来.即可,然后将图片上传到比特虫网站,进行icon转换.
+
+**transition 过渡**  
+
+transition:要过渡的属性(比如宽度从100到200) 要花费的时间  运动曲线  什么时候开始 
+
+如:
+ div{
+
+	width:100;
+	height:100;
+	translation: width  .2s  ease  0s  ;   	一般谁做动画,过渡写在谁身上
+
+}
+
+div:hover{
+
+	width:200;
+	height:200;			// 当鼠标放上去的时候div从之前的100,长宽过渡到现在的200长宽
+
+}
+
+有多个属性可以用逗号隔开:
+
+   	translation: width  .2s  ease  0s, height  .2s  ease  0s;
+	translation: all  .5s;     				 //	一般情况下,后面两个一般不写 
+
+
+**transform 变形**
+
+  	transform:translate(100px,0)	;			//	translate(x轴 ,y轴)    位移
+	//和上面的translation配合,尤其是时间,就是0.5秒是变形需要花费的时间
+
+![](./imgs/translation.png)
+
+比如图中的transform:translate(50%,50%);			//这里面的50%是和父盒子没有关系,是以自身的为准.自身高度和宽度的一半.
+
+translateX(50%)仅是水平方向移动50%
+translateY(50%)仅是垂直方向移动50%
+
+## 缩放 scale(宽度,高度)--##
+	transform:scale(0.8,1);							// 0  --->0% 	1--->100%
+	//水平宽度缩放原来的80%,垂直高度不变
+
+	transform:scale(0.8)
+![](./imgs/scale.png)
+
+## 旋转	rotate(45deg)   ##
+
+	transform:rotate(45deg)
+
+45deg 顺时针旋转45度(deg)  -45deg是逆时针
+
+transform-origin:
+
+![](imgs/origin.png)
+
+例子:
+
+![](imgs/tra.png)
+
+translation:all 0.6s ;   这个不能少,否则没有过渡效果出现
+
+
+
+
+
+
