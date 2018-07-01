@@ -208,3 +208,25 @@ git push命令用于将本地分支的更新，推送到远程主机。它的格
 	$ git push origin --tags
 
 
+# git 在使用过程中遇见的一些错误 # #
+
+1. Git push时出现"The remote end hung up unexpectedly"错误
+在使用git管理本地项目时，配置好了所有环境并完成add和commit的操作后却迟迟无法push成功，错误显示为：
+
+	 The remote end hung up unexpectedly
+
+经过一番查找资料后发现，是需要push 的内容太多（超过了100M）。在使用https进行上传的时候由于糟糕的网速而导致上传的时间过长，从而使得push失败。
+
+建议在使用git进行push/pull操作时还是使用ssh方式，速度相对较快。同时可以通过命令"git config ssh.postBuffer 524288000"的方式提高buffer的容量。
+
+# git 如何push 大文件? #
+Git LFS的官方网址在这里： [https://git-lfs.github.com/](https://git-lfs.github.com/)，官网上有很详细的说明，现在来简单说下使用方式：先安装 Git LFS 的客户端，**然后在将要push的仓库里重新打开一个bash命令行：**
+
+- 只需设置1次 LFS : git lfs install
+- 然后 跟踪一下你要push的大文件的文件或指定文件类型 git lfs track "*.pdf" ， 当然还可以直接编辑.gitattributes文件
+- 以上已经设置完毕， 其余的工作就是按照正常的 add , commit , push 流程就可以了 : 
+git add yourLargeFile.pdf
+git commit -m "Add Large file"
+git push -u origin master
+
+**目前 Git LFS的总存储量为1G左右，超过需要付费。**
