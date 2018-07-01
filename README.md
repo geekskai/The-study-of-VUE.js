@@ -509,8 +509,10 @@ transform-origin:
 
 translation:all 0.6s ;   这个不能少,否则没有过渡效果出现
 
+##倾斜 skew(deg,deg) ##
 
+transform:skew(30deg,0deg)       //x轴倾斜30度,y轴不写默认为0
 
-
+box-shadow: 0 10px 20px rgba(0,0,0,0.1);    // 配合transition:all 0.2s ; 就效果更好
 
 
