@@ -520,3 +520,11 @@ box-shadow: 0 10px 20px rgba(0,0,0,0.1);    // 配合transition:all 0.2s ; 就�
 ![](imgs/animation.png)
 
 	 animation: move 2s ease 0s infinite(无限次数) alternate(来回播放)    
+
+![](imgs/animation-haert.png)
+
+**只要这个动画备申明了,就可在本页任何css样式中调用**
+
+# css3 flex #
+
+![](imgs/flex.png)
