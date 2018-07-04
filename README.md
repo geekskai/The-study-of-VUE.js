@@ -528,3 +528,24 @@ box-shadow: 0 10px 20px rgba(0,0,0,0.1);    // 配合transition:all 0.2s ; 就�
 # css3 flex #
 
 ![](imgs/flex.png)
+
+# 背景颜色渐变  #
+
+	background:-webkit-linear-gradient(top ,red ,green );
+	background:-webkit-linear-gradient(渐变的起始位置,起始颜色,结束颜色)	
+
+![](imgs/webkit.png)
+
+第二种写法
+![](imgs/webkit2.png)
+
+background:-webkit-linear-gradient(top ,red 0%,green 50%,blue 100%);
+
+**中间用空格隔开**
+# 多背景图片 #
+
+![](imgs/more-background.png)
+
+	如果鼠标放上去没有反应,加个过渡试试,transition很重要
+
+# perspective   视距,透视 这个的值越小(一般500px),代表距离图片你越近 这个属性一般是给父标签加的   #  
