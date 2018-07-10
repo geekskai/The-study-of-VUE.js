@@ -225,3 +225,34 @@ for循环是在页面加载的时候执行的,事件是在触发的时候执行�
 5. 根据选择器获取元素,返回来的是一个元素对象.
 	document.querySelect("选择器的名字比如:#id")
 6. 根据选择去获取元素,返回来的是一个伪数组,里面保存了多个DOM对象,
+
+**如果一个属性在浏览器中不支持,那么这个属性的类型就是undefined**
+
+## 如何判断浏览器的兼容性? ##
+![](imgs/ie.png)
+
+在脚本`<script>`标签中定义这个方法,就可以直接用了! 
+
+## 如何给标签设置自定义属性? ##
+
+在html标签中,添加的自定义的属性,如果想要获取这个属性的值,需要使用getAttribute("自定义属性的名字"),才能获取到这个属性的值.
+
+![](imgs/DOM-obj.png)
+
+**设置自定义属性:**
+
+![](imgs/DOM-attribute.png)
+
+**移出某个标签的自定义的属性 removeAttribute('scope')**
+
+![](imgs/remove-attribute.png)
+
+**tab切换模块=======>原理是排他性**  
+
+思路:
+
+![](imgs/setindex.png)
+      
+**根据上面tab的index索引,下面的对应的div改变颜色!**
+
+![](imgs/other-current.png)
