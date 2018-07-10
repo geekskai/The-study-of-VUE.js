@@ -201,3 +201,27 @@ for循环是在页面加载的时候执行的,事件是在触发的时候执行�
 **disabled====>禁用的;readonly======>只读的**
 
 对于网页的开关灯,给body标签设置添加一个class属性的style样式为black就行了,而且,document.body可以直接获得body对象;
+
+
+----------
+## 阻止超链接默认跳转的几种方法 ##
+
+![](imgs/a-private.png)
+
+第三种写法
+![](imgs/a-three.png)
+
+**区别是第三种方法是将代码直接给onclick事件,第二种方法是onclick事件去执行f1函数**
+
+## 获取元素的方式 ##
+1. 根据ID属性获取元素,返回来的是一个对象,
+	document.getElementById("id")
+2. 根据标签名字获取元素,返回来的是一个数组,里面保存了多个DOM对象
+	document.getElementById("标签名字")
+3. 根据name属性的值获取元素,返回来的是一个伪数组,里面保存了多个DOM的对象,
+ document.getElementByName("name的属性值")
+4. 根据class 的样式名字来获取元素,返回来的是一个伪数组,里面保存了多个DOM的对象,
+	document.getElementByClassName("类名")
+5. 根据选择器获取元素,返回来的是一个元素对象.
+	document.querySelect("选择器的名字比如:#id")
+6. 根据选择去获取元素,返回来的是一个伪数组,里面保存了多个DOM对象,
