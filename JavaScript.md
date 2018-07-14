@@ -257,5 +257,73 @@ for循环是在页面加载的时候执行的,事件是在触发的时候执行�
 
 ![](imgs/other-current.png)
 
-# 上面是节点(node) #
+# 什么是节点(node) #
+
+
 答案是:标签,属性 ,文本(文字 空格 换行 )
+
+概念:
+文档:document
+元素:页面中的所有标签,元素
+节点:页面中的所有内容(标签,属性,文本(文字,空格,回车换行))
+根元素:html标签
+
+**节点的属性**
+
+
+1. 可以使用标签元素点出来,属性节点点出来,
+2. nodetype,节点的类型,1-->节点,2--->属性,3--->文本
+3. nodename,节点的名字,标签节点--->大写的标签名字,属性节点--->小写的属性名字,文本节点---->#text
+4. nodevalue,节点的值:标签节点---null,属性节点---属性值,文本节点---文本内容.
+
+
+**单复选框的全选和单选**
+
+思路:
+
+![](imgs/checkout.png)
+
+元素创建的三种方式:
+1. document.write("标签的代码内容")------>会覆盖页面上的所有内容.
+2. 对象.innerHTML='标签及代码';document.body.innerHTML="<p>这是一个p标签</p>"
+3. document.createElement();
+
+用原生DOM,注册一个鼠标点击事件,document.getElementById("标签的Id").onclick=function(){写鼠标点击后的代码}
+
+**如果是循环的方式添加事件,循环中的函数,推荐用命名函数,如果不是循环的方式添加事件,推荐用匿名函数.****也就是说,循环中,最好是用命名函数比较好,这样可以节省空间.
+
+![](imgs/on-mouseover.png)
+
+**百度新闻免费代码**
+
+*标签的css样式和DOM的css样式*
+
+![](imgs/CSSborder.png)
+
+图中的tableObj.border='1',是标签自带的border,给标签添加css属性,这样整个table标签中的tr 和td都有border属性,但是如若是tableObj.style.border='1px solid red' 这样是DOM属性,只有table有属性,table中的tr和td没有border属性.
+
+点击一次只创建一个按钮!
+**思路1:有则删除,无则创建** 
+
+看一下区别:
+![](imgs/create-button.png)
+
+这样的创建是,边创建,边删除(效率不是太好).
+
+**思路2:不存在,就创建,存在就维持原样,不做任何操作**
+
+![](imgs/createbButton.png)
+
+# 如何为一个元素标签绑定多个事件? #
+
+![](imgs/addEventListenner.png)
+
+注意:对于IE8,可以用这个对象.attachEvent("有on的事件类型",事件处理函数),这个只有IE8支持
+
+## 为任意元素,绑定任意事件##
+
+![](imgs/attach-events.png)
+
+**方法和函数的区别:**方法需要通过对象点才能调用执行(对象.sayHi();),函数可以直接使用(sayHello();)
+
+*一句话,方法是有人调,函数是没有人调*
