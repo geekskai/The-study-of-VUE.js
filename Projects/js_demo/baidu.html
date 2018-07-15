@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>百度搜索demo</title>
+  <style>
+    #box {
+      width: 459px;
+      margin: 50px auto;
+    }
+
+    #txt {
+      width: 350px;
+    }
+
+    #pop {
+      width: 359px;
+      border: 1px solid red;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box">
+    <input id="txt" type="text">
+    <input id="btn" type="button" value="搜索">
+  </div>
+  <script src="common.js"></script>
+  <script>
+    var keywords = ["小杨是最好的", "小杨是最晒的", "小杨是最会吃的", "小毛是搜索的",
+      "找工作", "找房子", "百度一下啊", "苹果手机", "苹果电脑", "工资多少"]
+    //获取键盘抬起事件
+    document.getElementById("txt").onkeyup = function () {
+      //每次键盘抬起的时候,都判断页面中有没有这个div,下面的代码正常执行
+      if (my$("dv")) {
+        //如果有就删除一次
+        my$('box').removeChild(my$('dv'));
+      }
+
+      var text = this.value;
+      //将输入框中的所有内容和keywords数组进行比价,然后将符合条件的内容放到一个新的临时数组中,在新个div中展现出来,
+      var temArr = [];
+      for (var i = 0; i < keywords.length; i++) {
+        if (keywords[i].indexOf(text) == 0) {
+          temArr.push(keywords[i]);
+        }
+      }
+      //如果文本框中的内容是空的,临时数组中的也是空的,那么就不创建,这步骤不能少.少了,所有数据都是匹配的
+      if (temArr.length == 0 || this.value.length == 0) {
+        //如果页面中有这个div,删除这div
+        if (my$('dv')) {
+          my$('box').removeChild(my$("dv"));
+        }
+        return;
+      }
+
+      //遍历临时数组,创建div,将div加入到id为box的div中
+      var dvObj = document.createElement('div');
+      document.getElementById("box").appendChild(dvObj);
+      dvObj.id = 'dv';
+      dvObj.style.width = "350px";
+      dvObj.style.border = "1px solid red";
+      //循环遍历临时数组,创建p标签
+      for (let i = 0; i < temArr.length; i++) {
+        var pObj = document.createElement('p')
+        my$('dv').appendChild(pObj);
+        //设置元素文本内容
+        setInnerText(pObj, temArr[i]);
+        pObj.style.margin = 0;
+        pObj.style.padding = 0;
+        pObj.style.cursor = 'pointer';
+        pObj.style.marginTop = '5px';
+        pObj.style.marginLeft = '5px';
+        //鼠标进入
+        pObj.onmouseover = function () {
+          this.style.backgroundColor = "blue";
+        };
+        //鼠标离开
+        pObj.onmouseout = function () {
+          this.style.backgroundColor = '';
+        }
+      }
+
+    }
+
+  </script>
+</body>
+
+</html>
