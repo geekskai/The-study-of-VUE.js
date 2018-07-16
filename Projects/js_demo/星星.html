@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>星星</title>
+  <style>
+    div {
+      border: 1px solid red;
+      width: 500px;
+      height: 500px;
+      background-color: black;
+      position: relative;
+    }
+
+    span {
+      position: absolute;
+      font-size: 40px;
+      color: yellow;
+    }
+  </style>
+</head>
+
+<body>
+  <input id="btn" type="button" value="闪星星">
+  <div id="dv">
+  </div>
+  <script src="common.js"></script>
+  <script>
+    my$("btn").onclick = function () {
+      setInterval(function () {
+        my$("dv").innerHTML = "<span>☆</span>"
+        var y = parseInt(Math.random() * 500 + 1)
+        var x = parseInt(Math.random() * 500 + 1)
+        my$("dv").firstElementChild.style.left = x + "px";
+        my$("dv").firstElementChild.style.top = y + "px";
+      }, 10)
+
+    }
+  </script>
+</body>
+
+</html>

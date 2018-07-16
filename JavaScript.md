@@ -399,3 +399,11 @@ history.go()// 输入你想进入的地址
 
 	(二):window.navigator.platform      // 可以判断浏览器所在的平台的系统平台类型
 	结果:w32
+
+**定时器的开始和结束**
+
+![](imgs/interval.png)
+
+## 一些案例 -->摇起来##
+
+![](imgs/demo-random.png)
