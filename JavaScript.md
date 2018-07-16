@@ -368,5 +368,34 @@ for循环是在页面加载的时候执行的,事件是在触发的时候执行�
 
 **类似百度搜索的联想输入框**
 
+项目目录URL:./Projects/js_demo
 
+# 浏览器事件 #
 
+window.onload=function(){};//页面加载的时候,触发的事件,
+window.onunload=function(){};//页面关闭之后,触发的事件,
+window.onbeforeunload=function(){};//页面关闭之前触发的事件,
+
+## location对象 ##
+
+location对象的属性和方法
+![](imgs/location.png)
+
+几种需要记住的属性和方法
+
+![](imgs/location-href.png)
+
+## history的一些属性(了解) ##
+
+history.back()//页面后退
+history.forward()//页面前进
+history.go()// 输入你想进入的地址
+
+扩展:
+
+	(一):window.navigator.userAgent		// 用于判断浏览器的参数
+
+	结果:Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36
+
+	(二):window.navigator.platform      // 可以判断浏览器所在的平台的系统平台类型
+	结果:w32
