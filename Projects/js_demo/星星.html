@@ -17,7 +17,7 @@
 
     span {
       position: absolute;
-      font-size: 40px;
+      font-size: 70px;
       color: yellow;
     }
   </style>
@@ -35,8 +35,10 @@
         var y = parseInt(Math.random() * 500 + 1)
         var x = parseInt(Math.random() * 500 + 1)
         my$("dv").firstElementChild.style.left = x + "px";
+        my$("dv").lastElementChild.style.left = x + "px";
         my$("dv").firstElementChild.style.top = y + "px";
-      }, 10)
+        my$("dv").lastElementChild.style.top = y + "px";
+      }, 40)
 
     }
   </script>
