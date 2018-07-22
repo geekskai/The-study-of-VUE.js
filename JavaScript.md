@@ -526,3 +526,11 @@ clinet系列:可视区域 简介如下图:
 ![](imgs/even.png)
 
 # 第七章 #
+
+1. offset系列
+2. scroll系列
+3. client系列
+
+![](imgs/2018-07-22_224231.png)
+![](imgs/2018-07-22_224324.png)
+
