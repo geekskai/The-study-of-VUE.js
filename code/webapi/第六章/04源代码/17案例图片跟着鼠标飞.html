@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body{
+      height: 2000px;
+    }
+    img {
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+<img src="images/tianshi.gif" alt="" id="im">
+<script src="common.js"></script>
+<script>
+  //文档的鼠标移动事件
+  //对象   事件   事件处理函数,事件触发了,函数的代码就会执行,执行的时候,函数调用的时候
+  //通过arguments.length，可以得出:事件处理函数中实际上是有一个参数的,这个参数和事件有关系,是一个对象----->事件参数对象
+
+  //谷歌和火狐中都有这个事件参数对象,IE8中没有
+  //事件参数对象:e----在IE8中用window.event来代替
+  //  document.onmousemove=function (e) {
+  //    //console.log(arguments[0]);
+  //    //console.log(e);
+  //  };
+
+
+  //  document.onmousemove=function (e) {
+  //    //document.title=e.clientX+"===>"+e.clientY;
+  //    my$("im").style.left=e.clientX+"px";
+  //    my$("im").style.top=e.clientY+"px";
+  //  };
+
+
+  //  document.onmousemove=function () {
+  //    //document.title=e.clientX+"===>"+e.clientY;
+  //    my$("im").style.left=window.event.clientX+"px";
+  //    my$("im").style.top=window.event.clientY+"px";
+  //  };
+
+
+//  document.onmousemove = function (e) {
+//    e = window.event || e;
+//    //可视区域的横坐标
+//    //可视区域的纵坐标
+//    my$("im").style.left = e.clientX + "px";
+//    my$("im").style.top = e.clientY + "px";
+//  };
+
+
+  document.onmousemove = function (e) {
+    //相对于页面顶部的坐标
+//    my$("im").style.left = e.pageX + "px";
+//    my$("im").style.top = e.pageY + "px";
+    //pageX和pageY在谷歌和火狐可以使用,IE8不能用
+
+
+//    my$("im").style.left = window.event.pageX + "px";
+//    my$("im").style.top = window.event.pageY + "px";
+
+
+  };
+</script>
+</body>
+</html>

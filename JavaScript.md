@@ -419,7 +419,10 @@ history.go()// 输入你想进入的地址
 ![](imgs/2018-07-21_120849.png)
 为了让定时器只启动一次,在启动定时器的时候,先清理定时器.
 
-扩展:克隆
+# 完整轮播图webapi第五天 #
+## offset系列 ##
+
+扩展:克隆,
 
 ![](imgs/2018-07-21_225932.png)
 
@@ -428,3 +431,98 @@ history.go()// 输入你想进入的地址
 **图片跟着鼠标移动**
 
 ![](imgs/2018-07-22_003141.png)
+
+
+----------
+
+# 第六章#
+
+## 1.scrool 系列 ##
+
+相关介绍如下:
+
+![](imgs/2018-07-22_101055.png)
+
+div.scrollHeight,这个是卷出去的距离.即,卷出div的距离.
+
+获取任意一个元素的任意一个属性的当前值
+
+![](imgs/2018-07-22_161314.png)
+
+变速动画函数,封装,任意多个属性,和回调函数,及层级,还有透明度!
+
+	function animate(element, json, fn) {
+    clearInterval(element.timeId);//清理定时器
+    //定时器,返回的是定时器的id
+    element.timeId = setInterval(function () {
+      var flag = true;//默认,假设,全部到达目标
+      //遍历json对象中的每个属性还有属性对应的目标值
+      for (var attr in json) {
+        //判断这个属性attr中是不是opacity
+        if (attr == "opacity") {
+          //获取元素的当前的透明度,当前的透明度放大100倍
+          var current = getStyle(element, attr) * 100;
+          //目标的透明度放大100倍
+          var target = json[attr] * 100;
+          var step = (target - current) / 10;
+          step = step > 0 ? Math.ceil(step) : Math.floor(step);
+          current += step;//移动后的值
+          element.style[attr] = current / 100;
+        } else if (attr == "zIndex") { //判断这个属性attr中是不是zIndex
+          //层级改变就是直接改变这个属性的值
+          element.style[attr] = json[attr];
+        } else {
+          //普通的属性
+          //获取元素这个属性的当前的值
+          var current = parseInt(getStyle(element, attr));
+          //当前的属性对应的目标值
+          var target = json[attr];
+          //移动的步数
+          var step = (target - current) / 10;
+          step = step > 0 ? Math.ceil(step) : Math.floor(step);
+          current += step;//移动后的值
+          element.style[attr] = current + "px";
+        }
+        //是否到达目标
+        if (current != target) {
+          flag = false;
+        }
+      }
+      if (flag) {
+        //清理定时器
+        clearInterval(element.timeId);
+        //所有的属性到达目标才能使用这个函数,前提是用户传入了这个函数
+        if (fn) {
+          fn();
+        }
+      }
+      //测试代码
+      console.log("目标:" + target + ",当前:" + current + ",每次的移动步数:" + step);
+    }, 20);
+    }
+
+[code/webapi/第六章/04源代码/11变速动画函数封装增加任意多个属性和回调函数及层级还有透明度.html](code/webapi/第六章/04源代码/11变速动画函数封装增加任意多个属性和回调函数及层级还有透明度.html)
+
+## 旋转木马 ##
+
+复习:arr.unshift("x")//向数组最前面添加一个x ;
+
+arr.pop()//将数组的最后一个元素删除并返回这个删除的元素;
+
+arr.shift("x")// 删除数组中的第一个元素,并返回这个被删除的元素;
+
+arr.push("x")向数组最后添加一个元素'x'
+
+## clinet系列 ##
+
+![](imgs/2018-07-22_220735.png)
+
+clinet系列:可视区域 简介如下图:
+
+![](imgs/2018-07-22_221117.png)
+
+图片跟着鼠标移动(鼠标移动事件)
+
+![](imgs/even.png)
+
+# 第七章 #

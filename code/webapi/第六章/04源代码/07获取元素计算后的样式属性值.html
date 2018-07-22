@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>title</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    div{
+      width: 200px;
+      height: 100px;
+      background-color: purple;
+      left:100px;
+      top:0;
+    }
+  </style>
+</head>
+<body>
+<input type="button" value="显示效果" id="btn"/>
+<div id="dv"></div>
+<script src="common.js"></script>
+<script>
+//  my$("btn").onclick=function () {
+//    //获取元素距离左边位置的值
+//    //console.log(my$("dv").offsetLeft);
+//
+//    //谷歌,火狐支持
+//    //console.log(window.getComputedStyle(my$("dv"),null).left);
+//
+//    //console.log(window.getComputedStyle(my$("dv"),null)["left"]);
+//    //IE8支持
+//    //console.log(my$("dv").currentStyle.left);
+//  };
+
+  //获取任意一个元素的任意一个样式属性的值
+
+//  function getStyle(element,attr) {
+//    //判断浏览器是否支持这个方法
+//    if(window.getComputedStyle){
+//      return window.getComputedStyle(element,null)[attr];
+//    }else{
+//      return element.currentStyle[attr];
+//    }
+//  }
+//
+
+
+  function getStyle(element,attr) {
+    //判断浏览器是否支持这个方法
+   return window.getComputedStyle? window.getComputedStyle(element,null)[attr]:element.currentStyle[attr];
+  }
+
+
+my$("btn").onclick=function () {
+  console.log(getStyle(my$("dv"),"top"));
+};
+
+
+//  var obj={
+//    sayHi:function () {
+//      console.log("哈哈");
+//    }
+//  };
+//
+//  if(obj.sayHi){
+//
+//  }
+</script>
+</body>
+</html>

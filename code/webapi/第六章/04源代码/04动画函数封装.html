@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    div {
+      margin-top: 20px;
+      width: 200px;
+      height: 100px;
+      background-color: green;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  </style>
+</head>
+<body>
+<input type="button" value="移动到400px" id="btn1"/>
+<input type="button" value="移动到800px" id="btn2"/>
+<div id="dv">
+  <script src="common.js"></script>
+  <script>
+    //点击按钮移动div
+
+    my$("btn1").onclick = function () {
+      animate(my$("dv"), 400);
+    };
+    my$("btn2").onclick = function () {
+      animate(my$("dv"), 800);
+    };
+
+    //匀速动画
+    function animate(element, target) {
+      //清理定时器
+      clearInterval(element.timeId);
+      element.timeId = setInterval(function () {
+        //获取元素的当前位置
+        var current = element.offsetLeft;
+        //移动的步数
+        var step = 10;
+        step = target > current ? step : -step;
+        current += step;
+        if (Math.abs(current - target) > Math.abs(step)) {
+          element.style.left = current + "px";
+        } else {
+          clearInterval(element.timeId);
+          element.style.left = target + "px";
+        }
+      }, 20);
+    }
+  </script>
+</div>
+</body>
+</html>

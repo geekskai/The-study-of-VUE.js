@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>旋转木马轮播图</title>
+  <link rel="stylesheet" href="css/css.css"/>
+  <script src="common.js"></script>
+  <script>
+    //
+    var config = [
+      {
+        width: 400,
+        top: 20,
+        left: 50,
+        opacity: 0.2,
+        zIndex: 2
+      },//0
+      {
+        width: 600,
+        top: 70,
+        left: 0,
+        opacity: 0.8,
+        zIndex: 3
+      },//1
+      {
+        width: 800,
+        top: 100,
+        left: 200,
+        opacity: 1,
+        zIndex: 4
+      },//2
+      {
+        width: 600,
+        top: 70,
+        left: 600,
+        opacity: 0.8,
+        zIndex: 3
+      },//3
+      {
+        width: 400,
+        top: 20,
+        left: 750,
+        opacity: 0.2,
+        zIndex: 2
+      }//4
+
+    ];
+
+    //页面加载的事件
+    window.onload = function () {
+      var flag=true;//假设所有的动画执行完毕了---锁====================================================
+      var list = my$("slide").getElementsByTagName("li");
+      //1---图片散开
+      function assign() {
+        for (var i = 0; i < list.length; i++) {
+          //设置每个li,都要把宽,层级,透明度,left,top到达指定的目标位置
+          animate(list[i], config[i],function () {
+            flag=true;//===============================================
+          });
+        }
+      }
+      assign();
+      //右边按钮
+      my$("arrRight").onclick = function () {
+        if(flag){//==========================================================
+          flag=false;
+          config.push(config.shift());
+          assign();//重新分配
+        }
+
+      };
+      //左边按钮
+      my$("arrLeft").onclick = function () {
+        if(flag){//==================================================
+          flag=false;
+          config.unshift(config.pop());
+          assign();
+        }
+
+      };
+      //鼠标进入,左右焦点的div显示
+      my$("slide").onmouseover = function () {
+        animate(my$("arrow"), {"opacity": 1});
+      };
+      //鼠标离开,左右焦点的div隐藏
+      my$("slide").onmouseout = function () {
+        animate(my$("arrow"), {"opacity": 0});
+      };
+    };
+  </script>
+
+</head>
+<body>
+<div class="wrap" id="wrap">
+  <div class="slide" id="slide">
+    <ul>
+      <li><a href="#"><img src="images/slidepic1.jpg" alt=""/></a></li>
+      <li><a href="#"><img src="images/slidepic2.jpg" alt=""/></a></li>
+      <li><a href="#"><img src="images/slidepic3.jpg" alt=""/></a></li>
+      <li><a href="#"><img src="images/slidepic4.jpg" alt=""/></a></li>
+      <li><a href="#"><img src="images/slidepic5.jpg" alt=""/></a></li>
+    </ul>
+    <div class="arrow" id="arrow">
+      <a href="javascript:;" class="prev" id="arrLeft"></a>
+      <a href="javascript:;" class="next" id="arrRight"></a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
