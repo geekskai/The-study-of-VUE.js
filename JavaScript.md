@@ -534,3 +534,31 @@ clinet系列:可视区域 简介如下图:
 ![](imgs/2018-07-22_224231.png)
 ![](imgs/2018-07-22_224324.png)
 
+**插入: for/in 循环的一些注意事项,这个循环是用来更方便的遍历对象属性成员:**
+
+	var obj={x:1,y:2,z:3};
+	
+	for(var i in obj){
+		console.log(obj[i])		
+	};
+	输出结果:1 2 3 
+	
+	
+
+	var obj={x:1,y:2,z:3};
+	var arr=[] ,i=0;
+	for(arr[i++] in obj);
+	输出结果:arr ["x", "y", "z"]
+
+for/in 循环不会遍历对象的所有属性,只有'可枚举的'属性才会被遍历到,对于稀疏数组中的属性,无法遍历出来,对象可以继承其他对象的属性,那些继承的自定义属性名,也可以遍历出来.
+
+arr.unshift('xx'),是向前添加一个'xx'元素,并返回数组的长度
+
+
+测试:
+
+	var  arr=[{name:'张三',age:23,address:'深圳'},{name:'李四',age:33,address:'北京'}];
+
+	arr.map(fuction(e){return e.name;});
+
+	
