@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>title</title>
+
+</head>
+<body>
+<a href="http://www.baidu.com" id="ak">百度</a>
+<script src="common.js"></script>
+<script>
+  my$("ak").onclick=function (e) {
+    alert("被点了");
+    return false;
+    //window.event.preventDefault();//阻止浏览器的默认的事件
+  };
+</script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    .wrap {
+      width: 500px;
+      margin: 100px auto 0;
+    }
+
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      border: 1px solid #c0c0c0;
+      width: 500px;
+      cursor: pointer;
+    }
+
+    th,
+    td {
+      border: 1px solid #d0d0d0;
+      color: #404060;
+      padding: 10px;
+    }
+
+    th {
+      background-color: #09c;
+      font: bold 16px "微软雅黑";
+      color: #fff;
+    }
+
+    td {
+      font: 14px "微软雅黑";
+    }
+
+    tbody tr {
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <table>
+    <thead>
+    <tr>
+      <th>序号</th>
+      <th>姓名</th>
+      <th>课程</th>
+      <th>成绩</th>
+    </tr>
+    </thead>
+    <tbody id="j_tb">
+    <tr>
+      <td>
+        1
+      </td>
+      <td>柳岩</td>
+      <td>语文</td>
+      <td>100</td>
+
+    </tr>
+    <tr>
+      <td>
+        2
+      </td>
+      <td>苍老师</td>
+      <td>日语</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>
+        3
+      </td>
+      <td>凤姐</td>
+      <td>营销学</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>
+        4
+      </td>
+      <td>芙蓉姐姐</td>
+      <td>数学</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>
+        5
+      </td>
+      <td>佐助</td>
+      <td>英语</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>
+        6
+      </td>
+      <td>卡卡西</td>
+      <td>体育</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>
+        7
+      </td>
+      <td>乔峰</td>
+      <td>体育</td>
+      <td>100</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<script src="common.js"></script>
+<script>
+
+  //先获取所有的行
+  var trs = my$("j_tb").getElementsByTagName("tr");
+  for (var i = 0; i < trs.length; i++) {
+    trs[i].style.backgroundColor = i % 2 == 0 ? "red" : "yellow";
+    //鼠标进入
+    trs[i].onmouseover = mouseoverHandle;
+    //鼠标离开
+    trs[i].onmouseout = mouseoutHandle;
+  }
+  //当鼠标进入的时候,先把设置后的颜色保存起来,等到鼠标离开再恢复即可
+  var lastColor = "";
+  function mouseoverHandle() {//鼠标进入
+    lastColor = this.style.backgroundColor;
+    this.style.backgroundColor = "green";
+  }
+  function mouseoutHandle() {//鼠标离开
+    this.style.backgroundColor = lastColor;
+  }
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>title</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    body{
+      height: 2000px;
+    }
+    img{
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+
+<img src="images/bird.png" alt="" id="im" />
+<script src="common.js"></script>
+<script>
+
+  //页面的鼠标移动事件
+  document.onmousemove=function (e) {
+    //鼠标相对于页面的可视区域的横坐标
+    //my$("im").style.left=e.clientX+"px";
+    //鼠标相对于页面的可视区域的纵坐标
+    //my$("im").style.top=e.clientY+"px";
+
+    //因为IE8的浏览器中针对事件参数对象使用的是window.event,那么,事件处理函数中是没有e这个参数的,所以,使用window.event来代替e
+//    my$("im").style.left=window.event.clientX+"px";
+//    my$("im").style.top=window.event.clientY+"px";
+
+    //火狐浏览器支持的事件参数对象:e,不支持window.event
+
+    //1.=======此时window.event和事件参数对象e是需要兼容的
+    //2. pageX和pageY就是鼠标相对于页面的边界的坐标
+
+    //下面的代码在谷歌和火狐支持
+//    my$("im").style.left=e.pageX+"px";
+//    my$("im").style.top=e.pageY+"px";
+
+    //下面的代码在IE8中不支持,不支持pageX和pageY的属性
+//    my$("im").style.left=window.event.pageX+"px";
+//    my$("im").style.top=window.event.pageY+"px";
+
+    function getScroll() {
+      return {
+        left:window.pageXOffset||document.body.scrollLeft||document.documentElement.scrollLeft||0,
+        top:window.pageYOffset||document.body.scrollTop||document.documentElement.scrollTop||0
+      }
+    }
+    //可视区域横坐+向左卷曲出去的横坐标
+    my$("im").style.left=window.event.clientX+getScroll().left+"px";
+    //可视区域纵坐标+向上卷曲出去的纵坐标
+    my$("im").style.top=window.event.clientY+getScroll().top+"px";
+
+  };
+
+</script>
+
+</body>
+</html>

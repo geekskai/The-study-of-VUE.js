@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    .login-header {
+      width: 100%;
+      text-align: center;
+      height: 30px;
+      font-size: 24px;
+      line-height: 30px;
+    }
+
+    ul, li, ol, dl, dt, dd, div, p, span, h1, h2, h3, h4, h5, h6, a {
+      padding: 0px;
+      margin: 0px;
+    }
+
+    .login {
+      width: 512px;
+      position: absolute;
+      border: #ebebeb solid 1px;
+      height: 280px;
+      left: 50%;
+      right: 50%;
+      background: #ffffff;
+      box-shadow: 0px 0px 20px #ddd;
+      z-index: 9999;
+      margin-left: -250px;
+      margin-top: 140px;
+      display: none;
+    }
+
+    .login-title {
+      width: 100%;
+      margin: 10px 0px 0px 0px;
+      text-align: center;
+      line-height: 40px;
+      height: 40px;
+      font-size: 18px;
+      position: relative;
+      cursor: move;
+      -moz-user-select: none; /*火狐*/
+      -webkit-user-select: none; /*webkit浏览器*/
+      -ms-user-select: none; /*IE10*/
+      -khtml-user-select: none; /*早期浏览器*/
+      user-select: none;
+    }
+
+    .login-input-content {
+      margin-top: 20px;
+    }
+
+    .login-button {
+      width: 50%;
+      margin: 30px auto 0px auto;
+      line-height: 40px;
+      font-size: 14px;
+      border: #ebebeb 1px solid;
+      text-align: center;
+    }
+
+    .login-bg {
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      background: #000000;
+      filter: alpha(opacity=30);
+      -moz-opacity: 0.3;
+      -khtml-opacity: 0.3;
+      opacity: 0.3;
+      display: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: #000000;
+    }
+
+    .login-button a {
+      display: block;
+    }
+
+    .login-input input.list-input {
+      float: left;
+      line-height: 35px;
+      height: 35px;
+      width: 350px;
+      border: #ebebeb 1px solid;
+      text-indent: 5px;
+    }
+
+    .login-input {
+      overflow: hidden;
+      margin: 0px 0px 20px 0px;
+    }
+
+    .login-input label {
+      float: left;
+      width: 90px;
+      padding-right: 10px;
+      text-align: right;
+      line-height: 35px;
+      height: 35px;
+      font-size: 14px;
+    }
+
+    .login-title span {
+      position: absolute;
+      font-size: 12px;
+      right: -20px;
+      top: -30px;
+      background: #ffffff;
+      border: #ebebeb solid 1px;
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+    }
+
+
+  </style>
+</head>
+<body>
+<div class="login-header"><a id="link" href="javascript:void(0);">点击，弹出登录框</a></div>
+<div id="login" class="login">
+  <div id="title" class="login-title">登录会员
+    <span><a id="closeBtn" href="javascript:void(0);" class="close-login">关闭</a></span></div>
+  <div class="login-input-content">
+    <div class="login-input">
+      <label>用户名：</label>
+      <input type="text" placeholder="请输入用户名" name="info[username]" id="username" class="list-input">
+    </div>
+    <div class="login-input">
+      <label>登录密码：</label>
+      <input type="password" placeholder="请输入登录密码" name="info[password]" id="password" class="list-input">
+    </div>
+  </div>
+  <div id="loginBtn" class="login-button"><a href="javascript:void(0);" id="login-button-submit">登录会员</a></div>
+</div><!--登录框-->
+<div id="bg" class="login-bg"></div><!--遮挡层-->
+<script src="common.js"></script>
+
+<script>
+
+  //获取超链接,注册点击事件,显示登录框和遮挡层
+  my$("link").onclick = function () {
+    my$("login").style.display = "block";
+    my$("bg").style.display = "block";
+  };
+
+  //获取关闭,注册点击事件,隐藏登录框和遮挡层
+  my$("closeBtn").onclick = function () {
+    my$("login").style.display = "none";
+    my$("bg").style.display = "none";
+  };
+
+  //按下鼠标,移动鼠标,移动登录框
+  my$("title").onmousedown = function (e) {
+    //获取此时的可视区域的横坐标-此时登录框距离左侧页面的横坐标
+    var spaceX = e.clientX - my$("login").offsetLeft;
+    var spaceY = e.clientY - my$("login").offsetTop;
+    //移动的事件
+    document.onmousemove = function (e) {
+      //新的可视区域的横坐标-spaceX====>新的值--->登录框的left属性
+      var x = e.clientX - spaceX+250;
+      var y = e.clientY - spaceY-140;
+      my$("login").style.left = x + "px";
+      my$("login").style.top = y + "px";
+
+    }
+  };
+
+  document.onmouseup=function () {
+    document.onmousemove=null;//当鼠标抬起的时候,把鼠标移动事件干掉
+  };
+
+</script>
+<script>
+
+  //点击超链接弹出登录框,点击页面的任何位置都可以关闭登录框
+  //  my$("link").onclick=function (e) {
+  //    my$("login").style.display="block";
+  //    //return false;
+  //    //e.preventDefault();
+  //    //上面的两个是阻止默认事件的
+  //    //下面的两个是阻止事件冒泡的
+  //    //window.event.cancelBubble=true;
+  //    e.stopPropagation();
+  //  };
+  //  document.onclick=function () {
+  //    my$("login").style.display="none";
+  //    console.log("隐藏了");
+  //  };
+</script>
+
+</body>
+</html>

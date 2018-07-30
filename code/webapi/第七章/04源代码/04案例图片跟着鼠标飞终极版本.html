@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>title</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    body{
+      height: 2000px;
+    }
+    img{
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+<img src="images/bird.png" alt="" id="im" />
+<script src="common.js"></script>
+<script>
+
+
+  //图片跟着鼠标飞,可以在任何的浏览器中实现
+  //window.event和事件参数对象e的兼容
+  //clientX和clientY单独的使用的兼容代码
+  //scrollLeft和scrollTop的兼容代码
+  //pageX,pageY和clientX+scrollLeft 和clientY+scrollTop
+
+  //把代码封装在一个函数
+
+  //把代码放在一个对象中
+  var evt={
+    //window.event和事件参数对象e的兼容
+    getEvent:function (evt) {
+      return window.event||evt;
+    },
+    //可视区域的横坐标的兼容代码
+    getClientX:function (evt) {
+      return this.getEvent(evt).clientX;
+    },
+    //可视区域的纵坐标的兼容代码
+    getClientY:function (evt) {
+      return this.getEvent(evt).clientY;
+    },
+    //页面向左卷曲出去的横坐标
+    getScrollLeft:function () {
+      return window.pageXOffset||document.body.scrollLeft||document.documentElement.scrollLeft||0;
+    },
+    //页面向上卷曲出去的纵坐标
+    getScrollTop:function () {
+      return window.pageYOffset||document.body.scrollTop||document.documentElement.scrollTop||0;
+    },
+    //相对于页面的横坐标(pageX或者是clientX+scrollLeft)
+    getPageX:function (evt) {
+      return this.getEvent(evt).pageX? this.getEvent(evt).pageX:this.getClientX(evt)+this.getScrollLeft();
+    },
+    //相对于页面的纵坐标(pageY或者是clientY+scrollTop)
+    getPageY:function (evt) {
+      return this.getEvent(evt).pageY?this.getEvent(evt).pageY:this.getClientY(evt)+this.getScrollTop();
+    }
+
+
+
+  };
+  //最终的代码
+
+  document.onmousemove=function (e) {
+    my$("im").style.left=evt.getPageX(e)+"px";
+    my$("im").style.top=evt.getPageY(e)+"px";
+  };
+
+
+
+//  var obj={
+//    sayHi:function () {
+//      console.log("考尼奇瓦");
+//      this.eat();//this就是obj这个对象
+//    },
+//    eat:function () {
+//      console.log("饭以ok,下来密西吧");
+//    }
+//
+//  };
+//  //调用sayHi方法的同时,调用eat方法,是否可以在一个方法中调用另一个方法?
+//  //在对象的方法中调用另一个方法如何调用?
+//
+//  obj.sayHi();
+
+
+
+</script>
+</body>
+</html>

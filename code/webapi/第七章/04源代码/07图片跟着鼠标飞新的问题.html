@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>title</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    img{
+      position: absolute;
+      border:1px solid red;
+      margin-left: 100px;
+      margin-top: -100px;
+    }
+  </style>
+</head>
+<body>
+<img src="images/bird.png" alt="" id="im" >
+<script src="common.js"></script>
+<script>
+
+  document.onmousemove=function (e) {
+    my$("im").style.left=e.clientX-100+"px";
+    my$("im").style.top=e.clientY+100+"px";
+  }
+</script>
+</body>
+</html>

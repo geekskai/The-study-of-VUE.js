@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>title</title>
+
+</head>
+<body>
+<input type="button" value="拼接吧" id="btn"/><br/>
+<input type="text" value=""/><br/>
+<input type="text" value=""/><br/>
+<input type="text" value=""/><br/>
+<input type="text" value=""/><br/>
+<input type="text" value=""/><br/>
+<script src="common.js"></script>
+<script>
+
+  //  var str="abcef";
+  //  console.log(str[2]);
+  //  str[2]="H";
+  //  console.log(str);
+
+
+  //字符串特性:不可变性
+  //点击按钮实现拼接
+  //  document.getElementById("btn").onclick=function () {
+  //    var str="";
+  //    //获取所有的文本框
+  //    var inputs=document.getElementsByTagName("input");
+  //    //每个文本框的value属性值
+  //    for(var i=0;i<inputs.length-1;i++){
+  //      if(inputs[i].type!="button"){
+  //        str+=inputs[i].value+"|";
+  //      }
+  //    }
+  //    console.log(str+inputs[inputs.length-1].value);
+  //  };
+
+  //推荐使用数组的方式拼接大量的字符串
+  document.getElementById("btn").onclick = function () {
+    var str = [];
+    //获取所有的文本框
+    var inputs = document.getElementsByTagName("input");
+    //每个文本框的value属性值
+    for (var i = 0; i < inputs.length; i++) {
+      if (inputs[i].type != "button") {
+        str.push(inputs[i].value);
+      }
+    }
+    console.log(str.join("|"));//字符串
+  };
+</script>
+
+</body>
+</html>

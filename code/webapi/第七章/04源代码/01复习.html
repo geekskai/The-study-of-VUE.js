@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>title</title>
+  <script>
+
+    /*
+    *
+    * 复习:
+    *
+    *  三大系列:
+    *
+    *  offset系列:
+    *  (父级元素margin+父级元素padding+父级元素border+自己的margin)
+    *  offsetLeft:元素距离左边位置的值
+    *  offsetTop:元素距离上面位置的值
+    *  offsetWidth:获取元素的宽度(有边框)
+    *  offsetHeight:获取元素的高度(有边框)
+    *
+    *  scroll系列:卷曲
+    *  scrollLeft:元素向左卷曲出去的距离
+    *  scrollTop:元素向上卷曲出去的距离
+    *  scrollWidth:元素中内容的实际的宽度,如果没有内容,或者内容很少,元素的宽度
+    *  scrollHeight:元素中内容的实际的高度,如果没有内容,或者内容很少,元素的高度
+    *
+    *
+    *  client系列:
+    *  clientWidth:可视区域的宽度,没有边框
+    *  clientHeight:可视区域的高度,没有边框
+    *  clientLeft:左边框的宽度
+    *  clientTop:上边框的宽度
+    *  clientX:可视区域的横坐标
+    *  clientY:可视区域的纵坐标
+    *
+    *  动画函数:-----------------在于会调用
+    *  匀速动画:重点内容----
+    *  变速动画(缓动动画)---第一个版本写出来---jQuery中就有动画函数,直接使用
+    *
+    *  如何缓动的?
+    *  (目标-当前)/10
+    *  增加的回调函数,增加了透明度和层级
+    *
+    *  旋转木马案例-----
+    *
+    *  图片跟着鼠标飞
+    *
+    *
+    *
+    *
+    *
+    *
+    *
+    * */
+    //获取的是元素计算后的样式属性的值
+    function getStyle(element,attr) {
+      return window.getComputedStyle?window.getComputedStyle(element,null)[attr]:element.currentStyle[attr]||0;
+    }
+
+    //为缓动动画函数服务的
+
+  </script>
+</head>
+<body>
+
+
+</body>
+</html>

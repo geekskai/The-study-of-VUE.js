@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    #list li {
+      list-style-type: none;
+      width: 80px;
+      height: 30px;
+      line-height: 30px;
+      background-color: beige;
+      text-align: center;
+      float: left;
+      margin-left: 5px;
+    }
+
+    #list li.current {
+      background-color: burlywood;
+    }
+
+    #list li a {
+      text-decoration: none;
+    }
+  </style>
+
+</head>
+<body>
+<div id="menu">
+  <ul id="list">
+    <li class="current"><a href="http://www.baidu.com">首页</a>
+    </li>
+    <li><a href="javascript:void(0)">播客</a></li>
+    <li><a href="javascript:void(0)">博客</a></li>
+    <li><a href="javascript:void(0)">相册</a></li>
+    <li><a href="javascript:void(0)">关于</a></li>
+    <li><a href="javascript:void(0)">帮助</a></li>
+  </ul>
+</div>
+<script src="common.js"></script>
+<script>
+
+  //获取所有的li标签,
+  var liObjs=my$("list").getElementsByTagName("li");
+  //循环遍历,找到每个li中的a,注册点击事件
+  for(var i=0;i<liObjs.length;i++){
+    //每个li中的a
+    var aObj=getFirstElement(liObjs[i]);
+
+    aObj.onclick=function () {
+      //第一件事:把这个a所在的li的所有的兄弟元素的类样式全部移除
+      for(var j=0;j<liObjs.length;j++){
+        liObjs[j].removeAttribute("class");
+      }
+      //第二件事:
+      //当前点击的a的父级元素li(点击的这个a所在的父级元素li),设置背景颜色
+      this.parentNode.className="current";
+
+      return false;//阻止超链接跳转
+    };
+  }
+</script>
+
+</body>
+</html>

@@ -561,4 +561,65 @@ arr.unshift('xx'),是向前添加一个'xx'元素,并返回数组的长度
 
 	arr.map(fuction(e){return e.name;});
 
+## 图片跟着鼠标飞行 ##
+
+
+  //图片跟着鼠标飞,可以在任何的浏览器中实现
+
+  //window.event和事件参数对象e的兼容
+
+  //clientX和clientY单独的使用的兼容代码
+
+  //scrollLeft和scrollTop的兼容代码
+
+  //pageX,pageY和clientX+scrollLeft 和clientY+scrollTop
+
+//把代码封装在一个函数
+
+ //把代码放在一个对象中
+
+	var evt={
+    //window.event和事件参数对象e的兼容
+    getEvent:function (evt) {
+      return window.event||evt;
+    },
+    //可视区域的横坐标的兼容代码
+    getClientX:function (evt) {
+      return this.getEvent(evt).clientX;
+    },
+    //可视区域的纵坐标的兼容代码
+    getClientY:function (evt) {
+      return this.getEvent(evt).clientY;
+    },
+    //页面向左卷曲出去的横坐标
+    getScrollLeft:function () {
+      return window.pageXOffset||document.body.scrollLeft||document.documentElement.scrollLeft||0;
+    },
+    //页面向上卷曲出去的纵坐标
+    getScrollTop:function () {
+      return window.pageYOffset||document.body.scrollTop||document.documentElement.scrollTop||0;
+    },
+    //相对于页面的横坐标(pageX或者是clientX+scrollLeft)
+    getPageX:function (evt) {
+      return this.getEvent(evt).pageX? this.getEvent(evt).pageX:this.getClientX(evt)+this.getScrollLeft();
+    },
+    //相对于页面的纵坐标(pageY或者是clientY+scrollTop)
+    getPageY:function (evt) {
+      return this.getEvent(evt).pageY?this.getEvent(evt).pageY:this.getClientY(evt)+this.getScrollTop();
+    }
+
+	 };
+  //最终的代码
+
+  	document.onmousemove=function (e) {
+    my$("im").style.left=evt.getPageX(e)+"px";
+    my$("im").style.top=evt.getPageY(e)+"px";
+  	};
+
+如果点击a标签不做任何跳转,可以这样做
 	
+	<a href="javascript:void(0);"></a>
+
+可以设置点击的时候,返回false,阻止a标签的默认跳转,和阻止事件冒泡
+
+![](imgs/2018-07-31_002724.png)
