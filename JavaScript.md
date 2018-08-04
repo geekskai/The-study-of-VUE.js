@@ -623,3 +623,54 @@ arr.unshift('xx'),是向前添加一个'xx'元素,并返回数组的长度
 可以设置点击的时候,返回false,阻止a标签的默认跳转,和阻止事件冒泡
 
 ![](imgs/2018-07-31_002724.png)
+
+设置鼠标移动的时候,文字不被选中:
+
+window.getSelection?window.getSelection.removeAllRanges():document.selection.empty();
+
+元素隐藏的不同方式:
+
+隐藏div
+
+1. 不占位置:document.getElementById('id').style.display='none';
+2. 占位置的:document.getElementById('id').style.visibility="hidden";
+
+字符串的不可变性质:
+
+var str= 'qbsdfs';
+str[1]=A;
+console.log(str);//结果还是: qbsdfs,
+原样是:字符串的指向改变了,但是值没有改变
+
+var str= 'qbsdfs';
+str='456';
+console.log(str);
+结果是:456;
+原来指向字符串:qbsdfs,现在指向456,但是内存没有改变,如果指向变多,大量的开辟储存空间,内存消耗大.
+
+## 原形对象的相关知识: ##
+
+![](imgs/2018-08-04_221038.png)
+
+原形的简单方法,手动修改原形构造器的指向,
+![](imgs/2018-08-04_224939.png)
+
+原形中的方法可以相互调用
+
+**实例对象中所使用的方法和属性,先在实例中查找,找到了,则直接使用,找不到,则去实例对象的__protot__所指向的原形对象prototype中查找,找到了则使用,找不到则报错**
+
+为系统内置对象添加原形方法,
+
+例如:Array.prototype.sayHi=function(){
+console.log(this+"呵呵")
+}
+
+ var arr='xxx';
+arr.sayHi();
+
+**局部变量变成全局变量,**
+
+![](imgs/2018-08-04_232554.png)
+
+
+
