@@ -104,6 +104,22 @@
           case 'bottom': this.body[0].y += 1;
             break;
         }
+        //判断是否迟到食物-小蛇头的坐标和食物的坐标一致
+        var headX = this.body[0].x * this.width;
+        var headY = this.body[0].y * this.height;
+        //判断小蛇的横纵坐标是否和食物的一致
+        if (headX == food.x && headY == food.y) {
+          //获取小蛇的最后的尾巴
+          var last = this.body[this.body.length - 1];
+          //把蛇尾重新复制一个,添加到尾巴最后面
+          this.body.push({
+            x: last.x,
+            y: last.y,
+            color: last.color
+          });
+          //把食物删除,从新初始化食物.
+          food.init(map);
+        }
       };
 
       //删除小蛇的私有函数
@@ -132,13 +148,62 @@
       };
 
       Game.prototype.init = function () {
+        //初始化游戏
+        //食物初始化
         this.food.init(this.map);
+        //小蛇初始化
         this.snake.init(this.map);
+        //调用自动移动小蛇的方法
+        this.runSnake(this.food, this.map);
+        //调用按键的方法
+        this.bindKey();
+      };
 
-        setInterval(function () {
-          that.snake.move(that.food, that.map);
-          that.snake.init(that.map);
-        }, 150);
+      //添加原形方法--设置小蛇可以自由跑起来
+      Game.prototype.runSnake = function (food, map) {
+        // 自动的去移动
+        var timeId = setInterval(function () {
+          // 此时的this是window
+
+          //移动小蛇
+          this.snake.move(food, map);
+          //初始化小蛇
+          this.snake.init(map);
+          //横坐标的最大值
+          var maxX = map.offsetWidth / this.snake.width;  //  40
+          //纵坐标的最大值
+          var maxY = map.offsetHeight / this.snake.height;  //  40
+          //小蛇的头的坐标
+          var headX = this.snake.body[0].x;
+          var headY = this.snake.body[0].y;
+          //横坐标
+          if (headX < 0 || headX >= maxX) {
+            //撞墙了 停止定时器
+            clearInterval(timeId);
+            alert('Game Over!')
+          }
+          //纵坐标
+          if (headY < 0 || headY >= maxY) {
+            //撞墙了 停止定时器
+            clearInterval(timeId);
+            alert('Game Over!')
+          }
+
+        }.bind(that), 150);
+      };
+
+      Game.prototype.bindKey = function () {
+        //获取用户的按键,改变小蛇的方向.
+        document.addEventListener('keydown', function (e) {
+          //这里的this应该是触发keydown的事件的对象--document
+          //获取按键的值
+          switch (e.keyCode) {
+            case 37: this.snake.direction = 'left'; break;
+            case 38: this.snake.direction = 'top'; break;
+            case 39: this.snake.direction = 'right'; break;
+            case 40: this.snake.direction = 'bottom'; break;
+          }
+        }.bind(that), false);
       };
       window.Game = Game;
     }());
@@ -146,7 +211,6 @@
 
     var gm = new Game(document.querySelector('.map'));
     gm.init();
-
     // var fd = new Food();
     // fd.init(document.querySelector('.map'));
     // var snake = new Snake();
