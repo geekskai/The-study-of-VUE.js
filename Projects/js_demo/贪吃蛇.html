@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +14,6 @@
     }
   </style>
 </head>
-
 <body>
   <div class="map"></div>
   <script>
@@ -53,7 +51,6 @@
       }
       window.Food = Food;
     }());
-
     //小蛇的自调用函数
     (function () {
       var elements = [];//存放小蛇的每个身体的部分
@@ -85,7 +82,6 @@
         }
       };
       //为原型添加方法,让小蛇动起来.
-
       Snake.prototype.move = function (food, map) {
         //改变小蛇的身体的坐标位置
         var i = this.body.length - 1;
@@ -121,7 +117,6 @@
           food.init(map);
         }
       };
-
       //删除小蛇的私有函数
       function remove() {
         //获取数组
@@ -133,7 +128,6 @@
           elements.splice(i, 1);
         }
       }
-
       window.Snake = Snake;
     }());
     //游戏的自调用函数
@@ -146,7 +140,6 @@
         this.map = map;
         that = this;
       };
-
       Game.prototype.init = function () {
         //初始化游戏
         //食物初始化
@@ -158,13 +151,11 @@
         //调用按键的方法
         this.bindKey();
       };
-
       //添加原形方法--设置小蛇可以自由跑起来
       Game.prototype.runSnake = function (food, map) {
         // 自动的去移动
         var timeId = setInterval(function () {
           // 此时的this是window
-
           //移动小蛇
           this.snake.move(food, map);
           //初始化小蛇
@@ -191,7 +182,6 @@
 
         }.bind(that), 150);
       };
-
       Game.prototype.bindKey = function () {
         //获取用户的按键,改变小蛇的方向.
         document.addEventListener('keydown', function (e) {
@@ -207,19 +197,12 @@
       };
       window.Game = Game;
     }());
-
-
     var gm = new Game(document.querySelector('.map'));
     gm.init();
     // var fd = new Food();
     // fd.init(document.querySelector('.map'));
     // var snake = new Snake();
     // snake.init(document.querySelector('.map'));
-
-
-
-
-
   </script>
 </body>
 
