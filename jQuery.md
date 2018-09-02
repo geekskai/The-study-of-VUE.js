@@ -34,3 +34,19 @@ $的中参数的不同,用法不同,分别是以下三种用法:
 2. 作为将DOM对象转换为jQuery对象的方法;
 3. 用来找到页面中的对象:$('#id');
 
+## CSS操作 ##
+ 
+1. 操作css属性,$('li').css('backgroundColor','red');
+2. 同时也可以传入一个对象$('li').css.({'backgroundColor':"pink",'fondSize':"18px"})
+3. 可以用来获取对象,$('div').css('backgroundColor');
+
+## class操作 ##
+
+addClass('basic');	//添加class
+
+removeClass('basic'); //移除
+
+hasClass('basic') ;//判断是否存在这个类.返回true/false 
+
+toggleClass('basic'); 判断一个类是否存在,存在就移除,不存在就添加.
+
