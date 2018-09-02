@@ -50,3 +50,23 @@ hasClass('basic') ;//判断是否存在这个类.返回true/false
 
 toggleClass('basic'); 判断一个类是否存在,存在就移除,不存在就添加.
 
+## 添加属性 ##
+
+//设置单个属性
+attr(name,value)
+$('img').attr('alt','图破了');
+
+//设置多个属性
+
+$('img').attr({
+alt:'图破了',
+title:'这个是一张图片'
+});
+
+//获取属性
+
+$('img').attr('title');
+
+**注意:**
+对于布尔类型的属性,不要用attr方法,应该用prop方法,prop用法和attr方法一样.
+
