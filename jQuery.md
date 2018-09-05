@@ -103,3 +103,43 @@ $('div').remove();删除div自己本身这个元素;
 	如果参数是true,不是深度复制,会复制事件.
 
 `$('p').clone(true).appendTo('div');`
+
+## 注册委托事件 delegate##
+
+![](imgs/2018-09-02_204609.png)
+
+注意:要个父元素注册委托事件.
+
+## on注册事件的两种方式 ##
+
+![](imgs/2018-09-05_220215.png)
+
+## off 接触绑定事件的两种方式 ##
+
+![](imgs/2018-09-05_224001.png)
+
+## 触发事件 trigger##
+
+$(select).trigger('click');  触发click事件
+
+**on方法中的data传参**
+
+![](imgs/2018-09-05_225131.png)
+
+a标签阻止浏览器默认行为跳转有两种:在方法中直接return false(也能阻止冒泡行为) 或者 e.preventDefault();
+
+**链式编程中的 end()方法的使用,就是让链式编程到时候,回到刚开始的时候的状态,也就是最初的那个对象**
+
+五角星案例
+
+![](imgs/2018-09-05_233134.png)
+
+## jQuery释放$的控制权 ##
+
+	$.onConflict();  
+
+释放控制权后,用jQuery(function(){});
+
+	还可以这样有个返回值 : var $$=$.onConflict();
+	$$(function(){});
+	
