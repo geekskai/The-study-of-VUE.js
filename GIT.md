@@ -1,5 +1,19 @@
 # 最全的Git入门操作使用详解 #
 
+##  Git安装配置教程##
+
+[https://blog.csdn.net/u013295518/article/details/78746007](https://blog.csdn.net/u013295518/article/details/78746007 "Git安装配置教程")
+
+# 如何配置ssh地址参考 #
+
+1：[https://blog.csdn.net/u014103733/article/details/79190004](https://blog.csdn.net/u014103733/article/details/79190004 "如何配置和github.com一样的秘钥")
+
+## Git 运行配置（git config） ##
+
+[https://www.jianshu.com/p/f29ca723db4f](https://www.jianshu.com/p/f29ca723db4f "Git 运行配置（git config）")
+
+
+
 	 git clone     git remote		 git fetchgit	 	pullgit push 
 
 首先看一下,这个图片,介绍一下,我们编辑的地方就是工作区,workspace,当开发完了之后,
