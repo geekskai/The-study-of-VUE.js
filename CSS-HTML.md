@@ -549,3 +549,10 @@ background:-webkit-linear-gradient(top ,red 0%,green 50%,blue 100%);
 	如果鼠标放上去没有反应,加个过渡试试,transition很重要
 
 # perspective   视距,透视 这个的值越小(一般500px),代表距离图片你越近 这个属性一般是给父标签加的   #  
+
+## 伸缩布局 ##
+
+## 如何让任意元素居中？ ##
+用**transform**
+
+![](imgs/2018-11-03_224657.png)
