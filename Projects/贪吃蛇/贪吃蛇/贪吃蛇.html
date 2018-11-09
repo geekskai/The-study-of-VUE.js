@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>贪吃蛇</title>
+  <style>
+    .map {
+      width: 800px;
+      height: 600px;
+      background-color: #ccc;
+      position: relative;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="map"></div>
+  <!-- 食物的自调用函数 -->
+  <script src="food.js"></script>
+  <!-- //小蛇的自调用函数 -->
+  <script src="snake.js"></script>
+  <!-- //游戏的自调用函数 -->
+  <script src="game.js"></script>
+  <script>
+    var gm = new Game(document.querySelector('.map'));
+    gm.init();
+    // var fd = new Food();
+    // fd.init(document.querySelector('.map'));
+    // var snake = new Snake();
+    // snake.init(document.querySelector('.map'));
+
+
+
+
+
+  </script>
+</body>
+
+</html>
