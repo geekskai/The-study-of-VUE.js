@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.startPage {
+    width: 100%;
+    z-index: 999;
+    height: 1000px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.startBtn {
+    background-image: url('img/startGame.png');
+    height: 170px;
+    width: 200px;
+    background-size: 100% 100%;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto
+}
+
+.wrapper {
+    width: 100%;
+    height: 800px;
+    background-image: url('img/bg.jpg');
+    background-size: 100% 100%;
+    position: relative;
+}
+
+.left-side {
+    width: 24%;
+    position: absolute;
+    height: 800px;
+    border-right: 1px solid #000000;
+}
+
+.left-side img {
+    display: none;
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+.main {
+    position: absolute;
+    left: 25%;
+    display: inline-block; 
+    width: 50%;
+    height: 90%;
+    border: 1px solid black;
+}
+
+.header {
+    width: 100%;
+    height: 80px;
+    text-align: center;
+}
+
+.score {
+    line-height: 80px;
+    color: #ddd;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.content {
+    position: absolute;
+    width: 79.5%;
+    height: 36.5%;
+    left: 10%;
+    top: 34%;
+    border: 1px solid red;
+}
+
+.loser {
+    /* display: none; */
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.con {
+    background-image: url('img/startP.jpg');
+    background-size: 100% 100%;
+    height: 300px;
+    width: 400px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 20px;
+
+}
+
+.loserScore {
+    display: block;
+    height: 30px;
+    width: 40px;
+    position: absolute;
+    top: 42%;
+    left: 40%;
+    color: #222;
+    font-size: 30px;
+    font-weight: bolder;
+}
+.close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 40px;
+    width: 40;
+    background-image: url('img/closeBtn.png');
+    background-size: 100% 100%;
+}
