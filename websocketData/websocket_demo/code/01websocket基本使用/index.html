@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>websocket</title>
+  </head>
+  <body>
+    <style>
+      div {
+        border: 1px solid red;
+        width: 500px;
+        height: 500px;
+        margin-top: 40px;
+      }
+    </style>
+    <input type="text" /> <button>发送请求</button>
+    <div></div>
+    <script>
+      var input = document.querySelector("input");
+      var div = document.querySelector("div");
+      var button = document.querySelector("button");
+      var socket = new WebSocket("ws://echo.websocket.org");
+      socket.addEventListener("open", function() {
+        div.innerHTML = "服务链接成功...";
+      });
+      button.addEventListener("click", function() {
+        var value = input.value;
+        socket.send(value);
+      });
+      socket.addEventListener('message',function (e) {
+          div.innerHTML=e.data;
+      })
+      socket.addEventListener('close',function () {
+          div.innerHTML='服务断开链接'
+      })
+    </script>
+  </body>
+</html>

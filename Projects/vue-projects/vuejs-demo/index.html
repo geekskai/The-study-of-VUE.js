@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+</head>
+
+<body>
+  <!--
+      npm init -y
+      npm i vue
+    -->
+  <div id="app">
+    <h1>{{ message}}&&</h1>
+    <button @click='startTime()'>定时器</button>
+    <!-- <h1>{{ message }}</h1> -->
+  </div>
+  <script src="node_modules/vue/dist/vue.js"></script>
+  <script>
+    let res = {
+      "result": [{
+        "filePath": "1111",
+        "startTime": "1111",
+        "versionName": "1111",
+        "restTime": "1111",
+        "step": "1111",
+        "id": "1111",
+        "message": "1111",
+        "taskId": "1111",
+        "status": "1111",
+      }]
+    }
+    var bookList2 = {
+      "title": "Professional Ajax",
+      "year": 2009,
+      "authors": [{
+          "First": "Jane"
+        },
+        {
+          "Second": "Maria"
+        },
+        {
+          "Third": "Jack & Mac"
+        }
+      ],
+      "edition": "2.0"
+    }
+    var jsonText = JSON.stringify(res);
+    // console.log(typeof jsonText);
+    // console.log('jsonText----', jsonText);
+    // console.log('res----', res);
+
+    // console.log('----res', res + '&&' + res);
+
+
+    const vue = new Vue({
+      el: "#app",
+      data: {
+        message: res
+      },
+      created: function () {
+        setInterval(this.timer, 1000);
+      },
+
+      methods: {
+        timer: function () {
+          console.log("time");
+        }
+      },
+      watch: {
+
+      },
+
+      beforeDestroy() {
+        clearInterval(this.timer);
+        this.timer = null;
+
+      },
+      computed: {
+
+      }
+
+    });
+  </script>
+</body>
+
+</html>
