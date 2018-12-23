@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
 
 <head>
   <meta charset="UTF-8" />
@@ -88,3 +89,30 @@
 </body>
 
 </html>
+=======
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--
+      npm init -y
+      npm i vue
+    -->
+    <div id="app">
+      <h1>{{ message }}</h1>
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+      const vue = new Vue({
+        el: "#app",
+        data: {
+          message: "my first vue demo"
+        }
+      });
+    </script>
+  </body>
+</html>
+>>>>>>> 276b1bbd061ae127b711429ebef2ddbec8999dc1
