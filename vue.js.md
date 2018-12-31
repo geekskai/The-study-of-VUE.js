@@ -55,3 +55,6 @@
 	<div @click='handleDiv'>
 		<button @click.stop='handleClick'></button> // 阻止这个事件向外冒泡
 	</div>
+	
+	//使用.prevent阻止默认行为
+	<a @click.prevent='handleLink'>点击去百度</a>
