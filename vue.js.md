@@ -168,3 +168,23 @@
 		 methods: {}
 	 });
  	</script>
+<h4>v-for 循环对象</h4>
+
+	// 创建 Vue 实例，得到 ViewModel
+	var vm = new Vue({
+	 el: '#app',
+	 data: {
+		 user: {
+			 id: 1,
+			 name: '张三',
+			 gender: '男'
+		 }
+	 },
+	 methods: {}
+	});
+	 注意：在遍历对象身上的键值对的时候,除了有value key,在第三个位置还有一个索引  
+	 <p v-for="(val, key, i) in user">值是： {{ val }} --- 键是： {{key}} -- 索引： {{i}}</p>
+
+**注意：如果使用 v-for 迭代数字的话，前面的 count 值从 1 开始 **
+
+	<p v-for="count in 10">这是第 {{ count }} 次循环</p>
