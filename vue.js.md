@@ -53,8 +53,14 @@
 <h3>1.4 事件修饰符</h3>
 
 	<div @click='handleDiv'>
-		<button @click.stop='handleClick'></button> // 阻止这个事件向外冒泡
+		<button @click.stop='handleClick'></button> // .stop阻止这个事件向外冒泡,这个是从里到外的事件
 	</div>
-	
+	<div @click.capture='handleDiv'>
+		<button @click='handleClick'></button> // .capture捕获里面的这个按钮的事件,这个是从外到里的事件
+	</div>
+	<div @click.self='handleDiv'>
+		<button @click='handleClick'></button> // .self只有点击自己才会出发的事件
+	</div>
+
 	//使用.prevent阻止默认行为
 	<a @click.prevent='handleLink'>点击去百度</a>
