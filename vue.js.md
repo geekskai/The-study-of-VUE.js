@@ -7,8 +7,8 @@
 	var vm = new Vue({
 		el:'#app',
 		data:{
-		msg:'这是个消息!',
-		intervalId:null,//在data上定义一个定时器,
+		 msg:'这是个消息!',
+		 intervalId:null,//在data上定义一个定时器,
 		}
 	})
 
