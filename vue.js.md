@@ -51,4 +51,5 @@
 	}
 
 <h3>1.4 事件修饰符</h3>
-`<h4 v-html='msg3'>这里如果写内容,也会被覆盖.</h4>`
+
+	<button @click.stop='handleClick'></button>

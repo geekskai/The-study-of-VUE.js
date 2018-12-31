@@ -18,7 +18,7 @@
 
   console.time('name');      // name是计数器的名字,可以随便写一个
   for (let i=0;i<arr.lenght;i++){
-    
+
   };
   console.timeEnd('name');
 
