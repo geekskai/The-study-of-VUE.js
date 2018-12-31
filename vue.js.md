@@ -147,10 +147,24 @@
 
 	</html>
 
-
-<h4>通过设置class 样式</h4>
+<h4>通过设置绑定class 样式</h4>
 
 	在数组中使用三元表达式:
 	<h1 :class="['thin', 'italic', flag?'active':'']">这是一个很大很大的H1</h1>
 	也可以传入一个对象,在数组中使用 对象来代替三元表达式，提高代码的可读性
 	<h1 :class="['thin', 'italic', {'active':flag} ]">这是一个很大很大的H1</h1>
+
+<h4>通过设置绑定style 样式</h4>
+
+	 <h1 :style="[ styleObj1, styleObj2 ]">这是一个h1</h1>
+	 <script>
+	 // 创建 Vue 实例，得到 ViewModel
+	 var vm = new Vue({
+		 el: '#app',
+		 data: {
+			 styleObj1: { color: 'red', 'font-weight': 200 },
+			 styleObj2: { 'font-style': 'italic' }
+		 },
+		 methods: {}
+	 });
+ 	</script>
