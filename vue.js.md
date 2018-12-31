@@ -7,12 +7,12 @@
 	var vm = new Vue({
 		el:'#app',
 		data:{
-			msg:'这是个消息!',
-			intervalId:null,//在data上定义一个定时器,
+		msg:'这是个消息!',
+		intervalId:null,//在data上定义一个定时器,
 		}
 	})
 
-<h3>1.2 `v-block` 能解决插值表达式在网速慢的时候,页面渲染的时候的闪烁问题.</h3>
+<h3>1.2 v-block 能解决插值表达式在网速慢的时候,页面渲染的时候的闪烁问题.</h3>
 
 <b>用法:</b>
 	<style>
