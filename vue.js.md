@@ -73,7 +73,142 @@
     <a @click.prevent='handleLink'>点击去百度</a>
     //使用.once只触发一次事件处理函数,会阻止一次默认行为,第二次就是回复原样,这两个事件之间,没有联系.
     <a @click.prevent.once='handleLink'>点击去百度查询</a>
-**对于 eval()方法**
+**对于 eval()方法,将字符串解析成表达式**
 
 	var codeStr = 'parseInt(this.val1)' + this.pot + 'parseInt(this.val2)'
 	this.result = eval(codeStr);
+<h4>简单的计算器</h4>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Document</title>
+<script src="./lib/vue-2.4.0.js"></script>
+</head>
+
+<body>
+<div id="app">
+	<input type="text" v-model="n1">
+
+	<select v-model="opt">
+		<option value="+">+</option>
+		<option value="-">-</option>
+		<option value="*">*</option>
+		<option value="/">/</option>
+	</select>
+
+	<input type="text" v-model="n2">
+
+	<input type="button" value="=" @click="calc">
+
+	<input type="text" v-model="result">
+</div>
+<script>
+	// 创建 Vue 实例，得到 ViewModel
+	var vm = new Vue({
+		el: '#app',
+		data: {
+			n1: 0,
+			n2: 0,
+			result: 0,
+			opt: '+'
+		},
+		methods: {
+			calc() { // 计算器算数的方法  
+				// 逻辑：
+				/* switch (this.opt) {
+					case '+':
+						this.result = parseInt(this.n1) + parseInt(this.n2)
+						break;
+					case '-':
+						this.result = parseInt(this.n1) - parseInt(this.n2)
+						break;
+					case '*':
+						this.result = parseInt(this.n1) * parseInt(this.n2)
+						break;
+					case '/':
+						this.result = parseInt(this.n1) / parseInt(this.n2)
+						break;
+				} */
+
+				// 注意：这是投机取巧的方式，正式开发中，尽量少用
+				var codeStr = 'parseInt(this.n1) ' + this.opt + ' parseInt(this.n2)'
+				this.result = eval(codeStr)
+			}
+		}
+	});
+</script>
+</body>
+</html>
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+	  <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	  <title>Document</title>
+	  <script src="./lib/vue-2.4.0.js"></script>
+	</head>
+
+	<body>
+	  <div id="app">
+	    <input type="text" v-model="n1">
+
+	    <select v-model="opt">
+	      <option value="+">+</option>
+	      <option value="-">-</option>
+	      <option value="*">*</option>
+	      <option value="/">/</option>
+	    </select>
+
+	    <input type="text" v-model="n2">
+
+	    <input type="button" value="=" @click="calc">
+
+	    <input type="text" v-model="result">
+	  </div>
+
+	  <script>
+	    // 创建 Vue 实例，得到 ViewModel
+	    var vm = new Vue({
+	      el: '#app',
+	      data: {
+	        n1: 0,
+	        n2: 0,
+	        result: 0,
+	        opt: '+'
+	      },
+	      methods: {
+	        calc() { // 计算器算数的方法  
+	          // 逻辑：
+	          /* switch (this.opt) {
+	            case '+':
+	              this.result = parseInt(this.n1) + parseInt(this.n2)
+	              break;
+	            case '-':
+	              this.result = parseInt(this.n1) - parseInt(this.n2)
+	              break;
+	            case '*':
+	              this.result = parseInt(this.n1) * parseInt(this.n2)
+	              break;
+	            case '/':
+	              this.result = parseInt(this.n1) / parseInt(this.n2)
+	              break;
+	          } */
+
+	          // 注意：这是投机取巧的方式，正式开发中，尽量少用
+	          var codeStr = 'parseInt(this.n1) ' + this.opt + ' parseInt(this.n2)'
+	          this.result = eval(codeStr)
+	        }
+	      }
+	    });
+	  </script>
+	</body>
+
+	</html>
