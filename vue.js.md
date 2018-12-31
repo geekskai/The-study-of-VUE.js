@@ -182,7 +182,7 @@
 	 },
 	 methods: {}
 	});
-<font color=red>注意：</font><i>在遍历对象身上的键值对的时候,除了有value key,在第三个位置还有一个索引 </i>
+<b>注意：</b><i>在遍历对象身上的键值对的时候,除了有value key,在第三个位置还有一个索引 </i>
 
 	 <p v-for="(val, key, i) in user">值是： {{ val }} --- 键是： {{key}} -- 索引： {{i}}</p>
 
