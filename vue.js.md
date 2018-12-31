@@ -52,4 +52,6 @@
 
 <h3>1.4 事件修饰符</h3>
 
-	<button @click.stop='handleClick'></button>
+	<div @click='handleDiv'>
+		<button @click.stop='handleClick'></button> // 阻止这个事件向外冒泡
+	</div>
