@@ -73,3 +73,7 @@
     <a @click.prevent='handleLink'>点击去百度</a>
     //使用.once只触发一次事件处理函数,会阻止一次默认行为,第二次就是回复原样,这两个事件之间,没有联系.
     <a @click.prevent.once='handleLink'>点击去百度查询</a>
+**对于 eval()方法**
+
+`var codeStr = 'parseInt(this.val1)' + this.pot + 'parseInt(this.val2)
+this.result = eval(codeStr);`		
