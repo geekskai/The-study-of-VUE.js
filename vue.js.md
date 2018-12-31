@@ -75,5 +75,5 @@
     <a @click.prevent.once='handleLink'>点击去百度查询</a>
 **对于 eval()方法**
 
-	var codeStr = 'parseInt(this.val1)' + this.pot + 'parseInt(this.val2)
+	var codeStr = 'parseInt(this.val1)' + this.pot + 'parseInt(this.val2)'
 	this.result = eval(codeStr);
