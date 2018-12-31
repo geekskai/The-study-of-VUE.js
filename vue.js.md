@@ -182,10 +182,12 @@
 	 },
 	 methods: {}
 	});
-<b>注意：</b><i>在遍历对象身上的键值对的时候,除了有value key,在第三个位置还有一个索引 </i>
+<font color=red>注意：</font><i>在遍历对象身上的键值对的时候,除了有value key,在第三个位置还有一个索引 </i>
 
 	 <p v-for="(val, key, i) in user">值是： {{ val }} --- 键是： {{key}} -- 索引： {{i}}</p>
 
-<i>注意：如果使用 v-for 迭代数字的话，前面的 count 值从 1 开始 </i>
+<b>注意：</b><i>如果使用 v-for 迭代数字的话，前面的 count 值从 1 开始 </i>
 
 	<p v-for="count in 10">这是第 {{ count }} 次循环</p>
+<font color=red size=72>
+</font>
