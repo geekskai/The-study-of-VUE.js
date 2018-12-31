@@ -186,6 +186,6 @@
 
 	 <p v-for="(val, key, i) in user">值是： {{ val }} --- 键是： {{key}} -- 索引： {{i}}</p>
 
-**注意：如果使用 v-for 迭代数字的话，前面的 count 值从 1 开始 **
+<b style='color:red;'>注意：如果使用 v-for 迭代数字的话，前面的 count 值从 1 开始 </b>
 
 	<p v-for="count in 10">这是第 {{ count }} 次循环</p>
