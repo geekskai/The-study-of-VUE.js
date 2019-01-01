@@ -265,3 +265,20 @@
 5. jQuery中有个contains 选择器,选择内容中所有包含 "is" 的 `<p>` 元素$("p:contains(is)");$(":contains(text)")选择内容中所有包含 "text" 的元素
 
 6. ES6中，为字符串提供了一个新方法，叫做  String.prototype.includes('要包含的字符串') //  如果包含，则返回 true ，否则返回 false.
+
+
+<h3>过滤器</h3>
+
+  -全局过滤器,
+
+  -私有过滤器.
+
+  -思考:函数中,形参的默认值是怎么样设置的??
+
+  -padStart ES6中的,新语法.为字符串添加补充数字.常用在时间的格式.
+
+  -@keyup.enter='add()' ,键盘抬起事件.
+
+  -自定义全局按键修饰符  Vue.config.keyCodes.f2 = 113
+
+  -自定义全局指令  Vue.directive('focus')   // 例如:v-color="'red'"
