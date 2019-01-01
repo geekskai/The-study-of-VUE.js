@@ -263,3 +263,5 @@
             </td>
           </tr>
 5. jQuery中有个contains 选择器,选择内容中所有包含 "is" 的 `<p>` 元素$("p:contains(is)");$(":contains(text)")选择内容中所有包含 "text" 的元素
+
+6. ES6中，为字符串提供了一个新方法，叫做  String.prototype.includes('要包含的字符串') //  如果包含，则返回 true ，否则返回 false.
