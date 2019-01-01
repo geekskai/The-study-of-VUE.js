@@ -262,4 +262,4 @@
               <a href="" @click.prevent="del(item.id)">删除</a>
             </td>
           </tr>
-5. jQuery中有个contains 选择器,选择内容中所有包含 "is" 的 `<p>` 元素$("p:contains(is)");$(":contains(text)")选择内容中所有包含 "is" 的元素
+5. jQuery中有个contains 选择器,选择内容中所有包含 "is" 的 `<p>` 元素$("p:contains(is)");$(":contains(text)")选择内容中所有包含 "text" 的元素
