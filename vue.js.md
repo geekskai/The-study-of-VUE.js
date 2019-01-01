@@ -251,6 +251,15 @@
       return true;
     }
   })`来找到数组中的索引.
+3. 在指令 v-for中 , 除了可以循环数组,还可以循环方法的返回值,指令可以拿到vue实例对象data中所有的数据.
+4. 之前， v-for 中的数据，都是直接从 data 上的list中直接渲染过来的,现在， 我们自定义了一个 search 方法，同时，把 所有的关键字，通过传参的形式，传递给了 search 方法,在 search 方法内部，通过 执行 for 循环， 把所有符合 搜索关键字的数据，保存到 一个新数组中，返回
 
-
-  
+        <tr v-for="item in search(keywords)" :key="item.id">
+            <td>{{ item.id }}</td>
+            <td v-text="item.name"></td>
+            <td>{{ item.ctime | dateFormat() }}</td>
+            <td>
+              <a href="" @click.prevent="del(item.id)">删除</a>
+            </td>
+          </tr>
+5. jQuery中有个contains 选择器,选择内容中所有包含 "is" 的 `<p>` 元素$("p:contains(is)");$(":contains(text)")选择内容中所有包含 "is" 的元素
