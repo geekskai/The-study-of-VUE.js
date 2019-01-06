@@ -282,3 +282,5 @@
   -自定义全局按键修饰符  Vue.config.keyCodes.f2 = 113
 
   -自定义全局指令  Vue.directive('focus')   // 例如:v-color="'red'";
+	
+	2019年1月6日17:47:03
